@@ -3,7 +3,7 @@ function doPost(e) {
     || SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['제출일시', '타입', '고료', '이름', '인스타그램', '휴대폰', '이메일', '우편번호', '배송지 주소', '요청사항']);
+    sheet.appendRow(['제출일시', '타입', '고료', '이름', '인스타그램', '휴대폰', '이메일', '색상 선택', '우편번호', '배송지 주소', '요청사항']);
   }
 
   const data = JSON.parse(e.postData.contents);
@@ -20,6 +20,7 @@ function doPost(e) {
     data.instagram || '',
     data.phone || '',
     data.email || '',
+    data.shades || '',
     data.zipcode || '',
     data.address || '',
     data.note || ''

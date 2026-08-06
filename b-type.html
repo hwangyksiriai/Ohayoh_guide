@@ -96,6 +96,11 @@ img{max-width:100%;display:block}
 .field input,.field textarea{width:100%;background:var(--white);border:1px solid rgba(42,33,25,.18);border-radius:10px;padding:12px 14px;font-size:16px;font-family:inherit;color:var(--ink)}
 .field textarea{resize:vertical;min-height:70px}
 .field input::placeholder,.field textarea::placeholder{color:#B8A99E}
+.shade-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.shade-item{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid rgba(42,33,25,.18);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s}
+.shade-item input{flex:none;width:16px;height:16px;accent-color:var(--brand)}
+.shade-item.checked{border-color:var(--brand);background:var(--brand-light)}
+.shade-item.disabled{opacity:.45;cursor:not-allowed}
 .zip-row{display:flex;gap:8px}
 .zip-row input{flex:1;min-width:0}
 .zip-btn{flex:none;background:var(--brand-dark);color:#fff;border:none;border-radius:10px;padding:0 18px;font-size:13px;font-weight:700;letter-spacing:-.01em;cursor:pointer;white-space:nowrap}
@@ -127,6 +132,7 @@ img{max-width:100%;display:block}
 @media(max-width:480px){.overview{grid-template-columns:1fr}}
 @media(max-width:380px){
   .hero{min-height:360px;padding:44px 18px 32px}
+  .shade-grid{grid-template-columns:1fr}
   .zip-row{flex-direction:column}
   .zip-btn{width:100%;padding:13px 18px}
   .product-card{flex-direction:column;align-items:flex-start}
@@ -297,6 +303,16 @@ img{max-width:100%;display:block}
         <input type="email" name="email" placeholder="name@email.com" />
       </div>
       <div class="field">
+        <label>제품 색상 선택 (2개) <span class="req">*</span></label>
+        <div class="shade-grid">
+          <label class="shade-item"><input type="checkbox" class="shade-checkbox" value="01 로우 시에나" /> 01 로우 시에나</label>
+          <label class="shade-item"><input type="checkbox" class="shade-checkbox" value="02 로즈 헤이즈" /> 02 로즈 헤이즈</label>
+          <label class="shade-item"><input type="checkbox" class="shade-checkbox" value="03 에테르 화이트" /> 03 에테르 화이트</label>
+          <label class="shade-item"><input type="checkbox" class="shade-checkbox" value="04 미드나잇 드림" /> 04 미드나잇 드림</label>
+        </div>
+        <p style="font-size:11px;color:var(--gray);margin-top:6px">4가지 색상 중 2개를 선택해주세요.</p>
+      </div>
+      <div class="field">
         <label>우편번호 <span class="req">*</span></label>
         <div class="zip-row">
           <input type="text" name="zipcode" id="zipcode" placeholder="00000" required />
@@ -408,6 +424,20 @@ const phoneInput = document.getElementById('phone');
 instagramInput.addEventListener('blur', function(){ if(this.value.trim()) this.value = normalizeInstagram(this.value); });
 phoneInput.addEventListener('blur', function(){ if(this.value.trim()) this.value = normalizePhone(this.value); });
 
+const shadeCheckboxes = Array.from(document.querySelectorAll('.shade-checkbox'));
+function updateShadeUI(){
+  const checkedCount = shadeCheckboxes.filter(cb => cb.checked).length;
+  shadeCheckboxes.forEach(cb => {
+    cb.closest('.shade-item').classList.toggle('checked', cb.checked);
+    if (!cb.checked){
+      cb.disabled = checkedCount >= 2;
+      cb.closest('.shade-item').classList.toggle('disabled', checkedCount >= 2);
+    }
+  });
+}
+shadeCheckboxes.forEach(cb => cb.addEventListener('change', updateShadeUI));
+updateShadeUI();
+
 // Google Apps Script 웹앱 배포 URL을 여기에 붙여넣으세요
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzXUbHSFZ7hY4aveKHqtFcL_OPqFCoCRRAHZYBPl4NEwgbo5Gy75L1b3Q_UZrYiYFyb/exec';
 const CAMPAIGN_TYPE = 'B Type';
@@ -417,6 +447,12 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
 
+  const selectedShades = shadeCheckboxes.filter(cb => cb.checked).map(cb => cb.value);
+  if (selectedShades.length !== 2){
+    alert('제품 색상을 2개 선택해주세요.');
+    return;
+  }
+
   const payload = {
     type: CAMPAIGN_TYPE,
     fee: CAMPAIGN_FEE,
@@ -424,6 +460,7 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
     instagram: normalizeInstagram(form.instagram.value),
     phone: normalizePhone(form.phone.value),
     email: form.email.value.trim(),
+    shades: selectedShades.join(', '),
     zipcode: form.zipcode.value.trim(),
     address: `${form.address.value.trim()} ${form.addressDetail.value.trim()}`.trim(),
     note: form.note.value.trim()
