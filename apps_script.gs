@@ -8,12 +8,7 @@ function doPost(e) {
 
   const data = JSON.parse(e.postData.contents);
 
-  const nextRow = sheet.getLastRow() + 1;
-  // 숫자로 보이는 열(휴대폰, 우편번호)을 텍스트 서식으로 고정 (앞자리 0 소실 방지)
-  sheet.getRange(nextRow, 6).setNumberFormat('@');
-  sheet.getRange(nextRow, 9).setNumberFormat('@');
-
-  sheet.appendRow([
+  const values = [
     new Date(),
     data.type || '',
     data.fee || '',
@@ -25,7 +20,15 @@ function doPost(e) {
     data.zipcode || '',
     data.address || '',
     data.note || ''
-  ]);
+  ];
+
+  const nextRow = sheet.getLastRow() + 1;
+  const range = sheet.getRange(nextRow, 1, 1, values.length);
+
+  // 숫자로 보이는 열(휴대폰=6, 우편번호=9)을 텍스트 서식으로 먼저 고정한 뒤 값을 씀 (앞자리 0 소실 방지)
+  sheet.getRange(nextRow, 6).setNumberFormat('@');
+  sheet.getRange(nextRow, 9).setNumberFormat('@');
+  range.setValues([values]);
 
   return ContentService
     .createTextOutput(JSON.stringify({ result: 'success' }))
