@@ -277,11 +277,11 @@ img{max-width:100%;display:block}
       </div>
       <div class="field">
         <label>인스타그램 링크 <span class="req">*</span></label>
-        <input type="text" name="instagram" placeholder="instagram.com/@username" required />
+        <input type="text" name="instagram" id="instagram" placeholder="@username 또는 instagram.com/username" required />
       </div>
       <div class="field">
         <label>휴대폰 <span class="req">*</span></label>
-        <input type="tel" name="phone" placeholder="010-0000-0000" required />
+        <input type="tel" name="phone" id="phone" placeholder="010-0000-0000" required />
       </div>
       <div class="field">
         <label>이메일 <span class="opt">(선택)</span></label>
@@ -376,10 +376,70 @@ document.getElementById('searchZip').addEventListener('click', function(){
   }).open();
 });
 
+// @handle / URL 형태를 모두 정식 인스타그램 링크로 변환
+function normalizeInstagram(raw){
+  let v = (raw || '').trim();
+  if (!v) return '';
+  v = v.replace(/^https?:\/\//i, '');
+  v = v.replace(/^(www\.)?instagram\.com\//i, '');
+  v = v.replace(/^@/, '');
+  v = v.split('?')[0].split('/')[0].trim();
+  return v ? `https://www.instagram.com/${v}` : '';
+}
+
+// 숫자만 입력해도 010-0000-0000 형태로 변환 (문자 취급 위해 시트에서 텍스트 서식 고정)
+function normalizePhone(raw){
+  const digits = (raw || '').replace(/\D/g, '');
+  if (digits.length === 11) return digits.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+  if (digits.length === 10) return digits.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+  return raw.trim();
+}
+
+const instagramInput = document.getElementById('instagram');
+const phoneInput = document.getElementById('phone');
+instagramInput.addEventListener('blur', function(){ if(this.value.trim()) this.value = normalizeInstagram(this.value); });
+phoneInput.addEventListener('blur', function(){ if(this.value.trim()) this.value = normalizePhone(this.value); });
+
+// Google Apps Script 웹앱 배포 URL을 여기에 붙여넣으세요
+const GAS_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
-  // TODO: Google Apps Script 웹앱 URL 연동 후 실제 제출 처리
-  alert('신청서 제출 기능은 준비 중입니다. 담당자에게 문의해주세요.');
+  const form = e.target;
+
+  const payload = {
+    name: form.name.value.trim(),
+    instagram: normalizeInstagram(form.instagram.value),
+    phone: normalizePhone(form.phone.value),
+    email: form.email.value.trim(),
+    zipcode: form.zipcode.value.trim(),
+    address: `${form.address.value.trim()} ${form.addressDetail.value.trim()}`.trim(),
+    note: form.note.value.trim()
+  };
+
+  if (GAS_URL.indexOf('YOUR_APPS_SCRIPT') !== -1){
+    alert('신청서 제출 기능은 준비 중입니다. 담당자에게 문의해주세요.');
+    return;
+  }
+
+  const submitBtn = form.querySelector('.submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '제출 중...';
+
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  }).then(function(){
+    alert('신청서가 제출되었습니다. 감사합니다!');
+    form.reset();
+  }).catch(function(){
+    alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+  }).finally(function(){
+    submitBtn.disabled = false;
+    submitBtn.textContent = '오헤이오 캠페인 지원서 제출하기';
+  });
 });
 </script>
 </body>
