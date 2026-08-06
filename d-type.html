@@ -56,6 +56,15 @@ img{max-width:100%;display:block}
 .product-card img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:none;background:#f2eeea}
 .product-card .pname{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
 .product-card a{font-size:12px;color:var(--brand-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--brand)}
+.pd-block{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px;margin-top:12px}
+.pd-block .pd-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brand-dark);font-weight:700;margin-bottom:8px;text-transform:uppercase}
+.pd-block p{font-size:13px;color:var(--gray)}
+.pd-block ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pd-block li{font-size:13px;color:var(--gray);padding-left:14px;position:relative}
+.pd-block li::before{content:'·';position:absolute;left:0;color:var(--brand)}
+.pd-block li b{color:var(--brand-dark)}
+.usp-box{background:var(--ink);color:#fff;border-radius:14px;padding:16px 18px;font-size:13px;line-height:1.6;margin-top:12px}
+.usp-box b{color:var(--brand-light);margin-right:4px}
 
 /* STEPS */
 .subhead{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:900;margin:22px 0 12px}
@@ -156,7 +165,7 @@ img{max-width:100%;display:block}
   <div class="section">
     <div class="eyebrow">About Brand</div>
     <div class="section-title">투명하고 맑은 발색의 색조 뷰티, 오헤이오</div>
-    <p class="about-desc">오헤이오(Ohayoh)는 하이라이터와 블러쉬, 립 등 피부에 투명하고 가볍게 밀착되는 맑은 발색의 메이크업 제품을 다루는 색조 뷰티 브랜드입니다.<br><br>데일리로 활용하기 좋은 은은한 베이지·핑크 광부터 생기 있는 포인트 컬러까지 감각적인 라인업을 선보이며, 트렌디한 감성과 실용성을 바탕으로 개성 있는 메이크업 스타일을 제안합니다.</p>
+    <p class="about-desc">Ohayoh(오헤이오)는 가볍게, 때로는 강렬하게 당신의 아름다움에 감탄 'OH!'을 더합니다.<br><br>평범한 일상 속 자연스럽게 스며들어 나만의 매력을 표현해주는 뷰티 브랜드입니다.</p>
     <div class="feat-grid">
       <div class="feat-card">
         <b>자연스럽고 맑은 연출</b>
@@ -188,8 +197,9 @@ img{max-width:100%;display:block}
       <div class="ov-card"><div class="ov-label">형식</div><div class="ov-value">릴스 (Reels)</div></div>
       <div class="ov-card"><div class="ov-label">공동작업자</div><div class="ov-value">필수</div></div>
       <div class="ov-card"><div class="ov-label">2차 활용</div><div class="ov-value">동의</div></div>
-      <div class="ov-card"><div class="ov-label">업로드 유지</div><div class="ov-value">3개월</div></div>
+      <div class="ov-card"><div class="ov-label">업로드 유지</div><div class="ov-value">6개월</div></div>
       <div class="ov-card full"><div class="ov-label">파트너십 코드</div><div class="ov-value">제공 필수</div></div>
+      <div class="ov-card full"><div class="ov-label">스토리 업로드</div><div class="ov-value">게시물 업로드 후 필수</div></div>
     </div>
     <div class="product-card">
       <img src="제품.PNG" alt="플래시 베일 하이라이터" />
@@ -198,6 +208,20 @@ img{max-width:100%;display:block}
         <a href="https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000260584" target="_blank">제품 상세 보기 →</a>
       </div>
     </div>
+    <div class="pd-block">
+      <div class="pd-label">컨셉</div>
+      <p>플래시를 켠 듯 반짝이는 펄이<br>가볍게 밀착되어 나만의 분위기를 선명하게 연출하는 하이라이터</p>
+    </div>
+    <div class="pd-block">
+      <div class="pd-label">특징</div>
+      <ul>
+        <li>다양한 컬러감으로 <b>원하는 추구미를 완성</b>해주는 몽환적인 컬러</li>
+        <li>촉촉하고 부드러운 텍스처가 피부에 <b>베일처럼 들뜸 없이 밀착</b></li>
+        <li><b>자연스러운 광감</b>을 내는 간섭 펄을 적용한 영롱한 광감의 하이라이터</li>
+        <li><b>다크닝 현상 억제</b>로 시간이 지나도 처음과 같은 화사하고 러블리 컬러 유지</li>
+      </ul>
+    </div>
+    <div class="usp-box"><b>USP</b>플래시를 받은 듯 선명하게 반짝이는 펄이 베일처럼 밀착되어 입체적인 광채를 완성!</div>
   </div>
 
   <!-- ░░ CONTENT GUIDE ░░ -->
@@ -215,6 +239,14 @@ img{max-width:100%;display:block}
       <div class="step">
         <span class="tag-req">필수 · 제형 및 발색 줌인 연출</span>
         <p>브러쉬나 손가락 끝에 제형을 묻혀 텁텁함 없이 맑고 얇게 밀착되는 입자감과 실물 펄감을 클로즈업(줌인)으로 연출해 주세요.</p>
+      </div>
+      <div class="step">
+        <span class="tag-req">필수 · 컬러 2가지 믹스 발색</span>
+        <p>컬러 2가지를 믹스하여 발색해주세요. EX) 광대 3호, 콧대 1호</p>
+      </div>
+      <div class="step">
+        <span class="tag-req">필수 · 손 or 손목 발색</span>
+        <p>손 또는 손목에 발색하는 컷을 포함해주세요.</p>
       </div>
       <div class="step">
         <span class="tag-req opt">선택 · 터치 노하우 및 광채 멘트/자막</span>
@@ -338,6 +370,14 @@ img{max-width:100%;display:block}
         <ul>
           <li>안내된 업로드 마감일까지 업로드 시 정산이 진행됩니다.</li>
           <li>정산은 매월 5일 일괄 지급됩니다.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <div class="ib-title">📌 콘텐츠 활용 안내</div>
+        <ul>
+          <li>콘텐츠는 브랜드 계정 내 스토리, 피드에 활용될 수 있습니다.</li>
+          <li>2차 활용에 동의해 주신 분들의 콘텐츠는 오헤이오 공식 홈페이지, SNS, 플랫폼 등에 활용될 수 있는 점 참고 부탁드립니다.</li>
         </ul>
       </div>
 
