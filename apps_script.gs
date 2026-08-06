@@ -9,8 +9,9 @@ function doPost(e) {
   const data = JSON.parse(e.postData.contents);
 
   const nextRow = sheet.getLastRow() + 1;
-  // 휴대폰 열을 텍스트 서식으로 고정 (앞자리 0 소실 방지)
+  // 숫자로 보이는 열(휴대폰, 우편번호)을 텍스트 서식으로 고정 (앞자리 0 소실 방지)
   sheet.getRange(nextRow, 6).setNumberFormat('@');
+  sheet.getRange(nextRow, 9).setNumberFormat('@');
 
   sheet.appendRow([
     new Date(),
