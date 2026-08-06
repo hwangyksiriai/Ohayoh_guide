@@ -3,17 +3,19 @@ function doPost(e) {
     || SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['제출일시', '이름', '인스타그램', '휴대폰', '이메일', '우편번호', '배송지 주소', '요청사항']);
+    sheet.appendRow(['제출일시', '타입', '고료', '이름', '인스타그램', '휴대폰', '이메일', '우편번호', '배송지 주소', '요청사항']);
   }
 
   const data = JSON.parse(e.postData.contents);
 
   const nextRow = sheet.getLastRow() + 1;
   // 휴대폰 열을 텍스트 서식으로 고정 (앞자리 0 소실 방지)
-  sheet.getRange(nextRow, 4).setNumberFormat('@');
+  sheet.getRange(nextRow, 6).setNumberFormat('@');
 
   sheet.appendRow([
     new Date(),
+    data.type || '',
+    data.fee || '',
     data.name || '',
     data.instagram || '',
     data.phone || '',

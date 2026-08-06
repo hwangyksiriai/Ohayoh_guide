@@ -410,12 +410,16 @@ phoneInput.addEventListener('blur', function(){ if(this.value.trim()) this.value
 
 // Google Apps Script 웹앱 배포 URL을 여기에 붙여넣으세요
 const GAS_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+const CAMPAIGN_TYPE = 'B Type';
+const CAMPAIGN_FEE = '100,000원';
 
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
 
   const payload = {
+    type: CAMPAIGN_TYPE,
+    fee: CAMPAIGN_FEE,
     name: form.name.value.trim(),
     instagram: normalizeInstagram(form.instagram.value),
     phone: normalizePhone(form.phone.value),
