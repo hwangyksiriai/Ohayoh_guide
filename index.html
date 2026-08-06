@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OHAYOH — 인플루언서 가이드라인</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --brand:#C89478;
+  --brand-dark:#3E2C22;
+  --brand-light:#F3E1D6;
+  --bg:#FBF7F3;
+  --ink:#2A2119; --gray:#8A7A70; --white:#fff;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:680px;margin:0 auto;padding-bottom:72px}
+img{max-width:100%;display:block}
+
+/* HERO */
+.hero{position:relative;color:#fff;text-align:center;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:56px 24px 44px}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,32,22,.25) 0%,rgba(46,32,22,.35) 40%,rgba(38,26,18,.92) 100%)}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:100px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;margin-bottom:18px;position:relative;backdrop-filter:blur(2px)}
+.hero h1{font-size:clamp(34px,10vw,50px);font-weight:900;letter-spacing:.02em;position:relative}
+.hero-sub{font-size:12px;opacity:.85;margin-top:8px;letter-spacing:.12em;position:relative;font-family:var(--mono)}
+
+/* SECTION */
+.section{padding:40px 24px;border-bottom:1px solid rgba(42,33,25,.08)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--brand);font-weight:500;margin-bottom:6px;text-transform:uppercase}
+.section-title{font-size:20px;font-weight:900;letter-spacing:.01em;margin-bottom:18px}
+.badge-req{display:inline-block;background:var(--brand);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:2px 8px;vertical-align:middle;margin-left:6px}
+.badge-opt{display:inline-block;background:rgba(42,33,25,.08);color:var(--gray);font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:2px 8px;vertical-align:middle;margin-left:6px}
+
+/* ABOUT */
+.about-lead{font-size:15px;font-weight:700;margin-bottom:10px}
+.about-desc{font-size:14px;color:var(--gray);margin-bottom:22px}
+.feat-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.feat-card{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px}
+.feat-card b{display:block;font-size:14px;color:var(--brand-dark);margin-bottom:4px}
+.feat-card span{font-size:13px;color:var(--gray)}
+.brand-link{display:inline-block;color:var(--brand-dark);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--brand);padding-bottom:2px}
+
+/* OVERVIEW GRID */
+.overview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ov-card{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px}
+.ov-card.full{grid-column:1/-1}
+.ov-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.ov-value{font-size:15px;font-weight:700}
+.ov-note{font-size:11px;color:#B5502E;margin-top:4px;font-weight:500}
+.product-card{display:flex;gap:14px;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px;margin-top:12px}
+.product-card img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:none;background:#f2eeea}
+.product-card .pname{font-size:14px;font-weight:700;margin-bottom:6px}
+.product-card a{font-size:12px;color:var(--brand-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--brand)}
+
+/* STEPS */
+.subhead{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:900;margin:22px 0 12px}
+.subhead .num2{font-family:var(--mono);font-size:11px;color:var(--brand-dark);background:var(--brand-light);border-radius:8px;padding:3px 8px;font-weight:500}
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px}
+.step .tag-req{color:var(--brand-dark);font-weight:800;font-size:13px;display:block;margin-bottom:4px}
+.step .tag-req.opt{color:var(--gray)}
+.step p{font-size:13px;color:var(--gray)}
+.note-box{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
+.cap-list{display:flex;flex-direction:column;gap:10px}
+.cap-list li{list-style:none;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
+.changeable{font-size:12px;color:var(--brand-dark);background:var(--brand-light);border-radius:10px;padding:8px 12px;margin-top:12px;font-weight:500}
+
+/* HASHTAG CHIPS */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag{background:var(--brand-light);color:var(--brand-dark);font-size:13px;font-weight:500;border-radius:100px;padding:6px 14px}
+.collab-box{margin-top:16px;display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px}
+.collab-box .l{font-size:12px;color:var(--gray)}
+.collab-box .v{font-size:14px;font-weight:700;color:var(--brand-dark)}
+
+/* NOTICE */
+.notice-box{background:var(--brand-light);border-radius:16px;padding:20px}
+.notice-box ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.notice-box li{font-size:13px;color:var(--brand-dark);padding-left:18px;position:relative;font-weight:500}
+.notice-box li::before{content:'!';position:absolute;left:0;top:0;color:var(--brand);font-weight:900}
+
+/* REFERENCE */
+.ref-list{display:flex;flex-direction:column;gap:8px}
+.ref-item{display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 18px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500}
+.ref-item span.arrow{color:var(--brand);font-weight:900}
+
+/* APPLICATION FORM */
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.field label .req{color:var(--brand)}
+.field label .opt{color:var(--gray);font-weight:400}
+.field input,.field textarea{width:100%;background:var(--white);border:1px solid rgba(42,33,25,.18);border-radius:10px;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--ink)}
+.field textarea{resize:vertical;min-height:70px}
+.field input::placeholder,.field textarea::placeholder{color:#B8A99E}
+.zip-row{display:flex;gap:8px}
+.zip-row input{flex:1}
+.zip-btn{flex:none;background:var(--brand-dark);color:#fff;border:none;border-radius:10px;padding:0 18px;font-size:13px;font-weight:700;cursor:pointer}
+.warn-box{background:#FBEFE9;border:1px solid rgba(184,80,46,.25);border-radius:12px;padding:14px 16px;font-size:12px;color:#9A4A2A;margin:8px 0 22px;display:flex;gap:8px}
+.info-box{background:var(--white);border:1px dashed var(--brand);border-radius:14px;padding:16px 18px;margin-bottom:20px}
+.info-box .ib-title{font-size:13px;font-weight:800;margin-bottom:8px}
+.info-box ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.info-box li{font-size:12px;color:var(--gray);padding-left:14px;position:relative}
+.info-box li::before{content:'·';position:absolute;left:0}
+.agree-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.agree-row input{margin-top:3px;flex:none}
+.agree-row .a-text{font-size:12px;color:var(--ink);font-weight:600}
+.agree-row .a-sub{font-size:11px;color:var(--gray);margin-top:2px;font-weight:400}
+.submit-btn{width:100%;background:var(--brand-dark);color:#fff;border:none;border-radius:14px;padding:17px;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px}
+.submit-btn:active{opacity:.9}
+
+/* CAPTION / COPY BLOCK */
+.copybox{background:var(--white);border:1px dashed var(--brand);border-radius:14px;padding:16px;font-size:13px;white-space:pre-wrap;position:relative;color:var(--ink)}
+.copybtn{position:absolute;top:10px;right:10px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:11px;padding:6px 12px;cursor:pointer}
+.copybtn.done{background:var(--brand)}
+.settle-list{list-style:none;font-size:13px;color:var(--gray);margin:12px 0;padding-left:2px}
+.settle-list li{padding-left:16px;position:relative;margin-bottom:4px}
+.settle-list li::before{content:'—';position:absolute;left:0;color:var(--brand)}
+
+.footer-brand{text-align:center;font-size:24px;font-weight:900;letter-spacing:.14em;color:var(--brand-dark);opacity:.45;margin-top:44px}
+.footer-note{text-align:center;font-size:11px;color:var(--gray);margin-top:10px;padding:0 30px}
+.footer-sub{text-align:center;font-size:11px;color:var(--gray);margin-top:20px}
+@media(max-width:480px){.overview{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ░░ HERO ░░ -->
+  <div class="hero">
+    <img class="hero-img" src="배너.PNG" alt="OHAYOH" />
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">INFLUENCER GUIDELINE</div>
+    <h1>오헤이오 가이드라인</h1>
+    <div class="hero-sub">OHAYOH × CREATOR CAMPAIGN</div>
+  </div>
+
+  <!-- ░░ ABOUT BRAND ░░ -->
+  <div class="section">
+    <div class="eyebrow">About Brand</div>
+    <div class="section-title">투명하고 맑은 발색의 색조 뷰티, 오헤이오</div>
+    <p class="about-desc">오헤이오(Ohayoh)는 하이라이터와 블러쉬, 립 등 피부에 투명하고 가볍게 밀착되는 맑은 발색의 메이크업 제품을 다루는 색조 뷰티 브랜드입니다.<br><br>데일리로 활용하기 좋은 은은한 베이지·핑크 광부터 생기 있는 포인트 컬러까지 감각적인 라인업을 선보이며, 트렌디한 감성과 실용성을 바탕으로 개성 있는 메이크업 스타일을 제안합니다.</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <b>자연스럽고 맑은 연출</b>
+        <span>하이라이터, 벨벳 블러쉬, 립 등 피부에 투명하고 가볍게 밀착되는 맑은 톤의 색조 메이크업 제품을 다룹니다.</span>
+      </div>
+      <div class="feat-card">
+        <b>감각적인 컬러 라이프스타일</b>
+        <span>데일리로 사용하기 좋은 은은한 베이지·핑크 광부터 포인트를 주는 다채로운 생기 컬러까지 개성 있는 라인업을 제공합니다.</span>
+      </div>
+      <div class="feat-card">
+        <b>트렌디한 트렌드 지향</b>
+        <span>트렌디한 감성과 실용성을 겸비한 뷰티 아이템을 선보이며 2030 트렌드 세터를 타깃으로 합니다.</span>
+      </div>
+    </div>
+    <a href="https://ohayoh.co.kr/" target="_blank" class="brand-link">브랜드 바로가기 →</a>
+  </div>
+
+  <!-- ░░ CAMPAIGN INFO ░░ -->
+  <div class="section">
+    <div class="eyebrow">Campaign Info</div>
+    <div class="section-title">캠페인 개요</div>
+    <div class="subhead"><span class="num2">SCHEDULE &amp; DETAILS</span></div>
+    <div class="overview">
+      <div class="ov-card full">
+        <div class="ov-label">업로드</div>
+        <div class="ov-value">8/28(금) ~ 8/29(토)</div>
+        <div class="ov-note">(주의) 일정 미준수 시 고료 지급 불가</div>
+      </div>
+      <div class="ov-card"><div class="ov-label">형식</div><div class="ov-value">릴스 (Reels)</div></div>
+      <div class="ov-card"><div class="ov-label">공동작업자</div><div class="ov-value">필수</div></div>
+      <div class="ov-card"><div class="ov-label">2차 활용</div><div class="ov-value">동의</div></div>
+      <div class="ov-card"><div class="ov-label">업로드 유지</div><div class="ov-value">3개월</div></div>
+      <div class="ov-card full"><div class="ov-label">파트너십 코드</div><div class="ov-value">제공 필수</div></div>
+    </div>
+    <div class="product-card">
+      <img src="제품.PNG" alt="플래시 베일 하이라이터" />
+      <div>
+        <div class="pname">플래시 베일 하이라이터</div>
+        <a href="https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000260584" target="_blank">제품 상세 보기 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ CONTENT GUIDE ░░ -->
+  <div class="section">
+    <div class="eyebrow">Content Guide</div>
+    <div class="section-title">제작 가이드 <span class="badge-req">필수</span></div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:4px">영상 및 캡션 포함 — 아래 영상 구성 포인트와 캡션 방향을 참고해 자유롭게 제작해주세요.</p>
+
+    <div class="subhead"><span class="num2">1</span> [영상]</div>
+    <div class="steps">
+      <div class="step">
+        <span class="tag-req">필수 · 사용 전후 Before &amp; After</span>
+        <p>사용 전(밋밋하고 평평한 얼굴)과 사용 후(코끝, 광대, 이마 등에 맑게 차오르는 입체 광)의 변화를 직관적으로 보여주는 B&amp;A 컷을 넣어주세요.</p>
+      </div>
+      <div class="step">
+        <span class="tag-req">필수 · 제형 및 발색 줌인 연출</span>
+        <p>브러쉬나 손가락 끝에 제형을 묻혀 텁텁함 없이 맑고 얇게 밀착되는 입자감과 실물 펄감을 클로즈업(줌인)으로 연출해 주세요.</p>
+      </div>
+      <div class="step">
+        <span class="tag-req opt">선택 · 터치 노하우 및 광채 멘트/자막</span>
+        <p>콧대, 광대, 애교살, 입술 산 등 원하는 부위에 부드럽게 스며들듯 터치하며 '속에서 터져 나오는 차오르는 플래시 광/베일 광' 효과를 멘트나 자막으로 표현해 주세요.</p>
+      </div>
+      <div class="step">
+        <span class="tag-req opt">선택 · 메이크업 완성도 강조</span>
+        <p>피부 메이크업 마지막 단계에서 하이라이터를 살짝 더해 피부 전체의 입체감과 투명한 결 광채가 살아나는 모습을 강조해 주세요.</p>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="num2">2</span> [촬영 팁]</div>
+    <div class="note-box">제품 패키지와 내부 펄/광채감이 왜곡 없이 깔끔하게 나타나도록 조명 아래나 자연광이 드는 매끈한 배경에서 고화질로 촬영해 주세요.</div>
+
+    <div class="subhead"><span class="num2">3</span> [캡션]</div>
+    <ul class="cap-list">
+      <li>텁텁하거나 요철 부각 없이 피부에 가볍고 투명하게 밀착되는 플래시 베일 하이라이터의 밀착력과 영롱한 광채감을 자유롭게 작성해 주세요.</li>
+      <li>콧대, 광대, 애교살 등 원하는 부위를 은은하게 밝혀 입체적인 이목구비를 완성하는 윤곽 입체 연출 효과를 위주로 언급해 주세요.</li>
+      <li>데일리 메이크업에 자연스러운 입체감을 주거나, 특별한 날 화려하고 투명한 광채를 더해주는 메이크업 필수템으로 적극 소구해 주세요.</li>
+    </ul>
+
+    <div class="changeable">※ 자세한 촬영·콘텐츠 가이드는 추후 브랜드 사정에 따라 변경되어 별도 전달될 수 있습니다.</div>
+
+    <div class="subhead"><span class="num2">4</span> 해시태그 <span class="badge-req">필수</span></div>
+    <div class="tags">
+      <span class="tag">#오헤이오</span>
+      <span class="tag">#OHAYOH</span>
+      <span class="tag">#플래시베일하이라이터</span>
+      <span class="tag">#오헤이오하이라이터</span>
+    </div>
+    <div class="changeable">※ 해시태그는 추후 변경될 수 있습니다.</div>
+
+    <div class="collab-box">
+      <div>
+        <div class="l">공동작업자</div>
+        <div class="v">@ohayoh.official</div>
+      </div>
+      <span class="badge-req">필수</span>
+    </div>
+  </div>
+
+  <!-- ░░ NOTICE ░░ -->
+  <div class="section">
+    <div class="eyebrow">Notice</div>
+    <div class="notice-box">
+      <ul>
+        <li>업로드 기한을 반드시 준수해주세요. 기간 내 업로드가 이루어지지 않을 경우 고료 지급이 불가합니다.</li>
+        <li>파트너십 코드 제공은 필수이며, 미제공 시 정산이 지연될 수 있습니다.</li>
+        <li>공동작업자 설정 및 콘텐츠 2차 활용에 동의하는 것으로 간주됩니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ░░ REFERENCE ░░ -->
+  <div class="section">
+    <div class="eyebrow">Reference</div>
+    <div class="section-title">레퍼런스 콘텐츠</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px">콘텐츠 제작 참고용 — 탭하여 확인</p>
+    <div class="ref-list">
+      <a class="ref-item" href="https://www.instagram.com/p/DVvgs4LEeAk/" target="_blank">레퍼런스 1 <span class="arrow">→</span></a>
+      <a class="ref-item" href="https://www.instagram.com/p/DW73oiME5Br/" target="_blank">레퍼런스 2 <span class="arrow">→</span></a>
+      <a class="ref-item" href="https://www.instagram.com/p/DaKsDE_SVqw/" target="_blank">레퍼런스 3 <span class="arrow">→</span></a>
+      <a class="ref-item" href="https://www.instagram.com/p/Dakn_mzxJxy/" target="_blank">레퍼런스 4 <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- ░░ APPLICATION ░░ -->
+  <div class="section">
+    <div class="eyebrow">Application</div>
+    <div class="section-title">캠페인 신청</div>
+    <form id="applyForm">
+      <div class="field">
+        <label>이름 <span class="req">*</span></label>
+        <input type="text" name="name" placeholder="홍길동" required />
+      </div>
+      <div class="field">
+        <label>인스타그램 링크 <span class="req">*</span></label>
+        <input type="text" name="instagram" placeholder="instagram.com/@username" required />
+      </div>
+      <div class="field">
+        <label>휴대폰 <span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="010-0000-0000" required />
+      </div>
+      <div class="field">
+        <label>이메일 <span class="opt">(선택)</span></label>
+        <input type="email" name="email" placeholder="name@email.com" />
+      </div>
+      <div class="field">
+        <label>우편번호 <span class="req">*</span></label>
+        <div class="zip-row">
+          <input type="text" name="zipcode" id="zipcode" placeholder="00000" required />
+          <button type="button" class="zip-btn" id="searchZip">주소 검색</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>배송지 주소 <span class="req">*</span></label>
+        <input type="text" name="address" id="address" placeholder="도로명 주소" required />
+      </div>
+      <div class="field">
+        <label>상세 주소 <span class="req">*</span></label>
+        <input type="text" name="addressDetail" placeholder="동·호수 등" required />
+      </div>
+      <div class="field">
+        <label>요청사항 <span class="opt">(선택)</span></label>
+        <textarea name="note" placeholder="배송 관련 요청사항을 적어주세요"></textarea>
+      </div>
+      <div class="warn-box">⚠ 배송지는 매 캠페인마다 새로 확인합니다. 오배송 방지를 위해 입력값을 다시 한번 체크해 주세요.</div>
+
+      <div class="info-box">
+        <div class="ib-title">📌 업로드 · 정산 안내</div>
+        <ul>
+          <li>안내된 업로드 마감일까지 업로드 시 정산이 진행됩니다.</li>
+          <li>정산은 매월 5일 일괄 지급됩니다.</li>
+          <li>세부 가이드라인과 촬영·업로드 일정은 선정 후 개별 안내드리며, 1주 이내에서 유연하게 조정 가능합니다.</li>
+        </ul>
+      </div>
+
+      <label class="agree-row">
+        <input type="checkbox" required />
+        <span class="a-text">안내된 캠페인별 가이드라인 및 고료 조건을 확인했으며 이에 동의합니다.<br>제작된 콘텐츠는 브랜드 및 SIRIAI의 2차 활용에 동의합니다. (필수)
+          <span class="a-sub">진행 제품은 브랜드 프로모션 상황에 따라 일부 변경될 수 있습니다.</span>
+        </span>
+      </label>
+
+      <button type="submit" class="submit-btn">오헤이오 캠페인 지원서 제출하기</button>
+    </form>
+  </div>
+
+  <!-- ░░ SETTLEMENT ░░ -->
+  <div class="section">
+    <div class="eyebrow">Settlement</div>
+    <div class="section-title">정산</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:14px">캠페인 선정 완료 후 정산을 위한 서류 및 연락처를 누락 없이 제출해 주세요.<br>확인 후 1~2주 이내에 처리가 완료됩니다.</p>
+
+    <div class="subhead"><span class="num2">제출 서류</span></div>
+    <ul class="settle-list">
+      <li>성함, 연락처, 신분증 사본 (뒷자리 포함), 통장 사본</li>
+    </ul>
+
+    <div class="subhead"><span class="num2">수신 이메일</span></div>
+    <div class="copybox" id="mailbox">hwangyksiriai@gmail.com<button class="copybtn" onclick="cp(this,'mailbox')">복사</button></div>
+
+    <div class="subhead" style="margin-top:18px"><span class="num2">메일 제목</span></div>
+    <div class="copybox" id="subjbox">오헤이오 _이름_@인스타핸들<button class="copybtn" onclick="cp(this,'subjbox')">복사</button></div>
+
+    <div class="notice-box" style="margin-top:18px">
+      <ul>
+        <li>정산 자료는 브랜드로부터 확정 안내를 받은 인플루언서에 한해서 제출해 주세요.</li>
+        <li>확정 안내를 받지 못한 경우 서류를 제출하지 마세요.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-brand">OHAYOH</div>
+  <p class="footer-note">본 가이드라인은 선별된 크리에이터에게만 제공되는 자료입니다.<br>문의사항이 있으시면 담당자에게 연락해 주세요.</p>
+  <p class="footer-sub">※ 자세한 가이드라인은 추후 브랜드 사정에 따라 변경될 수 있습니다.</p>
+</div>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function cp(btn,id){
+  const box=document.getElementById(id);
+  const txt=box.childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(txt).then(()=>{btn.textContent='복사됨 ✓';btn.classList.add('done');setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1600)});
+}
+
+document.getElementById('searchZip').addEventListener('click', function(){
+  if (typeof daum === 'undefined') { alert('주소 검색 스크립트를 불러오지 못했습니다.'); return; }
+  new daum.Postcode({
+    oncomplete: function(data){
+      document.getElementById('zipcode').value = data.zonecode;
+      document.getElementById('address').value = data.roadAddress || data.jibunAddress;
+    }
+  }).open();
+});
+
+document.getElementById('applyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  // TODO: Google Apps Script 웹앱 URL 연동 후 실제 제출 처리
+  alert('신청서 제출 기능은 준비 중입니다. 담당자에게 문의해주세요.');
+});
+</script>
+</body>
+</html>
