@@ -20,19 +20,7 @@ const SHEET_ROUTES = [
 /* 위 규칙에 걸리지 않는 신청(= 8월 하이라이터 등)이 들어갈 기본 탭 */
 const DEFAULT_SHEET_NAME = '시트1';
 
-/* ── 3. 타입별 행 배경색 ───────────────────────────────────
-   type 맨 앞 글자(A~G) 기준. 색을 바꾸고 싶으면 여기만 수정하세요. */
-const TYPE_COLORS = {
-  A: '#FCE8E6',   // 연한 레드     · 5만원
-  B: '#FEEFC3',   // 연한 오렌지   · 10만원
-  C: '#FFF7CC',   // 연한 옐로우   · 15만원
-  D: '#E6F4EA',   // 연한 그린     · 20만원
-  E: '#E8F0FE',   // 연한 블루     · 25만원
-  F: '#E9E2F7',   // 연한 퍼플     · 30만원
-  G: '#F1F3F4'    // 연한 그레이   · 고료 조정
-};
-
-/* ── 4. 컬럼 구성 ──────────────────────────────────────────
+/* ── 3. 컬럼 구성 ──────────────────────────────────────────
    순서를 바꾸면 아래 PHONE_COL / ZIP_COL 번호도 같이 바꿔야 합니다. */
 const HEADERS = [
   '제출일시', '타입', '고료', '이름', '인스타그램', '휴대폰',
@@ -79,10 +67,9 @@ function doPost(e) {
     const range = sheet.getRange(row, 1, 1, values.length);
     range.setValues([values]);
 
-    // 타입별 행 색상
-    const color = TYPE_COLORS[typeLetter_(type)];
-    if (color) range.setBackground(color);
-
+    // 타입/고료 구분은 색이 아니라 '타입'·'고료' 컬럼과 필터로 합니다.
+    // 행 배경은 전부 흰색(채우기 없음)으로 고정.
+    range.setBackground(null);
     range.setVerticalAlignment('middle');
 
     return json_({ result: 'success', sheet: sheet.getName(), row: row });
@@ -115,12 +102,6 @@ function resolveSheetName_(type) {
     }
   }
   return DEFAULT_SHEET_NAME;
-}
-
-/** 'A Type 9월' → 'A' */
-function typeLetter_(type) {
-  const m = type.match(/([A-Z])\s*Type/i);
-  return m ? m[1].toUpperCase() : '';
 }
 
 function getSpreadsheet_() {
@@ -177,7 +158,7 @@ function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('오헤이오')
     .addItem('현재 탭 타입별로 정렬', 'sortActiveSheetByType')
-    .addItem('현재 탭 타입 색상 다시 칠하기', 'recolorActiveSheet')
+    .addItem('현재 탭 행 색상 모두 지우기', 'clearRowColors')
     .addToUi();
 }
 
@@ -193,19 +174,13 @@ function sortActiveSheetByType() {
   ]);
 }
 
-/** 색상이 빠진 기존 행까지 타입 색으로 전부 다시 칠하기 */
-function recolorActiveSheet() {
+/** 이미 색이 칠해진 기존 행까지 전부 흰색으로 되돌리기 */
+function clearRowColors() {
   const sheet = SpreadsheetApp.getActiveSheet();
   const last = sheet.getLastRow();
   if (last < 2) return;
 
-  const types = sheet.getRange(2, 2, last - 1, 1).getValues();
-  for (let i = 0; i < types.length; i++) {
-    const color = TYPE_COLORS[typeLetter_(String(types[i][0]))];
-    if (color) {
-      sheet.getRange(i + 2, 1, 1, HEADERS.length).setBackground(color);
-    }
-  }
+  sheet.getRange(2, 1, last - 1, HEADERS.length).setBackground(null);
 }
 
 
