@@ -39,6 +39,24 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
 .hub-hero p{font-size:13px;opacity:.85;margin-top:8px;letter-spacing:.06em}
 
 .hub-list{padding:32px clamp(16px,4.5vw,24px);display:flex;flex-direction:column;gap:12px}
+.hub-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:2px}
+
+/* FOLDER CARD */
+.folder-card{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;font-family:inherit;color:var(--ink);background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:18px;padding:20px;cursor:pointer;min-height:76px}
+.folder-card .f-left{display:flex;align-items:center;gap:14px;min-width:0}
+.folder-card .f-icon{width:44px;height:44px;border-radius:14px;background:var(--brand-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+.folder-card .f-title{font-size:17px;font-weight:900;letter-spacing:-.01em}
+.folder-card .f-sub{font-size:12px;color:var(--gray);margin-top:3px}
+.folder-card .f-right{display:flex;align-items:center;gap:10px;flex:none}
+.folder-card .f-count{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-light);border-radius:100px;padding:4px 10px}
+.folder-card .arrow{color:var(--brand);font-weight:900;font-size:18px}
+
+/* LIST VIEW */
+.back-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;background:none;border:none;color:var(--gray);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;padding:8px 0;min-height:40px}
+.list-head{padding-bottom:12px;border-bottom:1px solid rgba(42,33,25,.1);margin-bottom:6px}
+.list-head h2{font-size:20px;font-weight:900;letter-spacing:-.01em}
+.list-head p{font-size:12px;color:var(--gray);margin-top:2px}
+
 .hub-card{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:16px;padding:18px 20px;text-decoration:none;color:var(--ink);min-height:56px;gap:12px}
 .hub-card .h-left{display:flex;align-items:center;gap:14px;min-width:0}
 .hub-card .h-num{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--brand);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex:none}
@@ -51,6 +69,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
 @media(max-width:360px){
   .hub-card{padding:16px}
   .hub-card .h-num{width:32px;height:32px;font-size:12px}
+  .folder-card{padding:16px}
+  .folder-card .f-icon{width:38px;height:38px;font-size:18px}
+  .folder-card .f-title{font-size:15px}
 }
 </style>
 </head>
@@ -76,44 +97,135 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
         <h1>오헤이오 가이드 허브</h1>
         <p>OHAYOH × CREATOR CAMPAIGN</p>
       </div>
-      <div class="hub-list">
-        <a class="hub-card" href="a-type.html">
-          <div class="h-left"><div class="h-num">A</div><div><div class="h-title">A Type · 5만원</div><div class="h-sub">임시 제목 · 크리에이터 가이드</div></div></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="hub-card" href="b-type.html">
-          <div class="h-left"><div class="h-num">B</div><div><div class="h-title">B Type · 10만원</div><div class="h-sub">임시 제목 · 크리에이터 가이드</div></div></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="hub-card" href="c-type.html">
-          <div class="h-left"><div class="h-num">C</div><div><div class="h-title">C Type · 20만원</div><div class="h-sub">임시 제목 · 크리에이터 가이드</div></div></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="hub-card" href="d-type.html">
-          <div class="h-left"><div class="h-num">D</div><div><div class="h-title">D Type · 30만원</div><div class="h-sub">임시 제목 · 크리에이터 가이드</div></div></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="hub-card" href="e-type.html">
-          <div class="h-left"><div class="h-num">E</div><div><div class="h-title">E Type · 고료 조정</div><div class="h-sub">임시 제목 · 크리에이터 가이드</div></div></div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
+
+      <!-- 폴더 목록 -->
+      <div class="hub-list" id="folderView"></div>
+
+      <!-- 폴더 내부 -->
+      <div class="hub-list" id="listView" style="display:none"></div>
+
       <div class="hub-footer">OHAYOH</div>
     </div>
   </div>
 
 <script>
+/* ░░ 캠페인 폴더 데이터 — 폴더/가이드 추가·수정은 여기만 바꾸면 됩니다 ░░ */
+const FOLDERS = [
+  {
+    id: 'aug',
+    icon: '✨',
+    name: '8월 하이라이트 진행',
+    sub: '플래시 베일 하이라이터',
+    items: [
+      { badge: 'A', title: 'A Type · 5만원',     sub: '크리에이터 가이드', href: 'a-type.html' },
+      { badge: 'B', title: 'B Type · 10만원',    sub: '크리에이터 가이드', href: 'b-type.html' },
+      { badge: 'C', title: 'C Type · 20만원',    sub: '크리에이터 가이드', href: 'c-type.html' },
+      { badge: 'D', title: 'D Type · 30만원',    sub: '크리에이터 가이드', href: 'd-type.html' },
+      { badge: 'E', title: 'E Type · 고료 조정', sub: '크리에이터 가이드', href: 'e-type.html' }
+    ]
+  },
+  {
+    id: 'sep',
+    icon: '🌸',
+    name: '9월 에어리 벨벳 블러쉬',
+    sub: '오헤이오 무스 에어리 벨벳 블러쉬',
+    items: [
+      { badge: 'A', title: 'A Type 9월 · 50,000원',  sub: '크리에이터 가이드', href: 'sep-a-type.html' },
+      { badge: 'B', title: 'B Type 9월 · 100,000원', sub: '크리에이터 가이드', href: 'sep-b-type.html' },
+      { badge: 'C', title: 'C Type 9월 · 150,000원', sub: '크리에이터 가이드', href: 'sep-c-type.html' },
+      { badge: 'D', title: 'D Type 9월 · 200,000원', sub: '크리에이터 가이드', href: 'sep-d-type.html' },
+      { badge: 'E', title: 'E Type 9월 · 250,000원', sub: '크리에이터 가이드', href: 'sep-e-type.html' },
+      { badge: 'F', title: 'F Type 9월 · 300,000원', sub: '크리에이터 가이드', href: 'sep-f-type.html' },
+      { badge: 'G', title: 'G Type 9월 · 고료 조정', sub: '크리에이터 가이드', href: 'sep-g-type.html' }
+    ]
+  }
+];
+
 const PASSWORD = '0907';
 const gate = document.getElementById('gate');
 const hub = document.getElementById('hub');
 const pwInput = document.getElementById('pw');
 const pwBtn = document.getElementById('pwBtn');
 const pwErr = document.getElementById('pwErr');
+const folderView = document.getElementById('folderView');
+const listView = document.getElementById('listView');
+
+function esc(s){
+  return String(s).replace(/[&<>"]/g, function(c){
+    return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c];
+  });
+}
+
+function renderFolders(){
+  folderView.innerHTML =
+    '<div class="hub-eyebrow">Campaign Folders</div>' +
+    FOLDERS.map(function(f){
+      return '<button class="folder-card" type="button" data-folder="' + esc(f.id) + '">' +
+               '<div class="f-left">' +
+                 '<div class="f-icon">' + esc(f.icon) + '</div>' +
+                 '<div>' +
+                   '<div class="f-title">' + esc(f.name) + '</div>' +
+                   '<div class="f-sub">' + esc(f.sub) + '</div>' +
+                 '</div>' +
+               '</div>' +
+               '<div class="f-right">' +
+                 '<span class="f-count">' + f.items.length + '종</span>' +
+                 '<span class="arrow">→</span>' +
+               '</div>' +
+             '</button>';
+    }).join('');
+}
+
+function renderList(folder){
+  listView.innerHTML =
+    '<button class="back-btn" type="button" id="backBtn">← 폴더 목록</button>' +
+    '<div class="list-head"><h2>' + esc(folder.name) + '</h2>' +
+      '<p>' + esc(folder.sub) + ' · 가이드라인 ' + folder.items.length + '종</p></div>' +
+    folder.items.map(function(it){
+      return '<a class="hub-card" href="' + esc(it.href) + '">' +
+               '<div class="h-left"><div class="h-num">' + esc(it.badge) + '</div>' +
+                 '<div><div class="h-title">' + esc(it.title) + '</div>' +
+                      '<div class="h-sub">' + esc(it.sub) + '</div></div>' +
+               '</div>' +
+               '<span class="arrow">→</span>' +
+             '</a>';
+    }).join('');
+  document.getElementById('backBtn').addEventListener('click', function(){
+    location.hash = '';
+  });
+}
+
+function showFolders(){
+  listView.style.display = 'none';
+  folderView.style.display = 'flex';
+  window.scrollTo(0, 0);
+}
+
+function openFolder(id){
+  const folder = FOLDERS.filter(function(f){ return f.id === id; })[0];
+  if (!folder){ showFolders(); return; }
+  renderList(folder);
+  folderView.style.display = 'none';
+  listView.style.display = 'flex';
+  window.scrollTo(0, 0);
+}
+
+function routeFromHash(){
+  const id = location.hash.replace(/^#/, '');
+  if (id) openFolder(id); else showFolders();
+}
+
+folderView.addEventListener('click', function(e){
+  const card = e.target.closest('.folder-card');
+  if (card) location.hash = card.dataset.folder;
+});
+window.addEventListener('hashchange', routeFromHash);
 
 function unlock(){
   gate.style.display = 'none';
   hub.style.display = 'block';
   sessionStorage.setItem('ohayoh_hub_ok', '1');
+  routeFromHash();
 }
 
 function tryUnlock(){
@@ -125,6 +237,8 @@ function tryUnlock(){
     pwInput.focus();
   }
 }
+
+renderFolders();
 
 if (sessionStorage.getItem('ohayoh_hub_ok') === '1'){
   unlock();
