@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OHAYOH — 가이드 허브</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
 :root{
-  --brand:#C89478;
-  --brand-dark:#3E2C22;
-  --brand-light:#F3E1D6;
-  --bg:#FBF7F3;
-  --ink:#2A2119; --gray:#8A7A70; --white:#fff;
-  --mono:'JetBrains Mono',monospace;
+  --brand:#D4718C;
+  --brand-dark:#5C2436;
+  --brand-light:#FBE3EA;
+  --bg:#FDF4F7;
+  --ink:#32202A; --gray:#8C737D; --white:#fff;
+  --sans:'Helvetica Neue',Helvetica,Arial,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent;min-height:100vh;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;word-wrap:break-word}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent;min-height:100vh;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;word-wrap:break-word}
 .wrap{max-width:680px;margin:0 auto;padding-bottom:72px}
 
 /* GATE */
@@ -26,10 +26,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
 .gate-box .g-badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:100px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;padding:6px 16px;margin-bottom:18px}
 .gate-box h1{color:#fff;font-size:24px;font-weight:900;margin-bottom:8px;letter-spacing:-.01em}
 .gate-box p{color:rgba(255,255,255,.75);font-size:13px;margin-bottom:22px}
-.gate-box input{width:100%;text-align:center;letter-spacing:.4em;font-size:20px;font-family:var(--mono);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:14px;color:#fff;margin-bottom:12px}
+.gate-box input{width:100%;text-align:center;letter-spacing:.4em;font-size:20px;font-family:var(--sans);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:14px;color:#fff;margin-bottom:12px}
 .gate-box input::placeholder{color:rgba(255,255,255,.35);letter-spacing:.3em;font-size:14px}
 .gate-box button{width:100%;background:#fff;color:var(--brand-dark);border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:800;letter-spacing:-.01em;cursor:pointer;min-height:48px}
-.gate-err{color:#FFD3C4;font-size:12px;margin-top:12px;min-height:16px}
+.gate-err{color:#FFD6E0;font-size:12px;margin-top:12px;min-height:16px}
 
 /* HUB CONTENT */
 #hub{display:none}
@@ -39,27 +39,27 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
 .hub-hero p{font-size:13px;opacity:.85;margin-top:8px;letter-spacing:.06em}
 
 .hub-list{padding:32px clamp(16px,4.5vw,24px);display:flex;flex-direction:column;gap:12px}
-.hub-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:2px}
+.hub-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:2px}
 
 /* FOLDER CARD */
-.folder-card{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;font-family:inherit;color:var(--ink);background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:18px;padding:20px;cursor:pointer;min-height:76px}
+.folder-card{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;font-family:inherit;color:var(--ink);background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:18px;padding:20px;cursor:pointer;min-height:76px}
 .folder-card .f-left{display:flex;align-items:center;gap:14px;min-width:0}
 .folder-card .f-icon{width:44px;height:44px;border-radius:14px;background:var(--brand-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
 .folder-card .f-title{font-size:17px;font-weight:900;letter-spacing:-.01em}
 .folder-card .f-sub{font-size:12px;color:var(--gray);margin-top:3px}
 .folder-card .f-right{display:flex;align-items:center;gap:10px;flex:none}
-.folder-card .f-count{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-light);border-radius:100px;padding:4px 10px}
+.folder-card .f-count{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-light);border-radius:100px;padding:4px 10px}
 .folder-card .arrow{color:var(--brand);font-weight:900;font-size:18px}
 
 /* LIST VIEW */
 .back-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;background:none;border:none;color:var(--gray);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;padding:8px 0;min-height:40px}
-.list-head{padding-bottom:12px;border-bottom:1px solid rgba(42,33,25,.1);margin-bottom:6px}
+.list-head{padding-bottom:12px;border-bottom:1px solid rgba(92,36,54,.1);margin-bottom:6px}
 .list-head h2{font-size:20px;font-weight:900;letter-spacing:-.01em}
 .list-head p{font-size:12px;color:var(--gray);margin-top:2px}
 
-.hub-card{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:16px;padding:18px 20px;text-decoration:none;color:var(--ink);min-height:56px;gap:12px}
+.hub-card{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:16px;padding:18px 20px;text-decoration:none;color:var(--ink);min-height:56px;gap:12px}
 .hub-card .h-left{display:flex;align-items:center;gap:14px;min-width:0}
-.hub-card .h-num{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--brand);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex:none}
+.hub-card .h-num{font-family:var(--sans);font-size:13px;font-weight:700;color:#fff;background:var(--brand);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex:none}
 .hub-card .h-title{font-size:16px;font-weight:800;letter-spacing:-.01em}
 .hub-card .h-sub{font-size:12px;color:var(--gray);margin-top:2px}
 .hub-card .arrow{color:var(--brand);font-weight:900;font-size:18px;flex:none}
@@ -128,7 +128,7 @@ const FOLDERS = [
     id: 'sep',
     icon: '🌸',
     name: '9월 에어리 벨벳 블러쉬',
-    sub: '오헤이오 무스 에어리 벨벳 블러쉬',
+    sub: '하이라이터 + 무스 에어리 벨벳 블러쉬',
     items: [
       { badge: 'A', title: 'A Type 9월 · 50,000원',  sub: '크리에이터 가이드', href: 'sep-a-type.html' },
       { badge: 'B', title: 'B Type 9월 · 100,000원', sub: '크리에이터 가이드', href: 'sep-b-type.html' },

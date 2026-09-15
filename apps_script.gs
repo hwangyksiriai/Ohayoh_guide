@@ -24,7 +24,7 @@ const DEFAULT_SHEET_NAME = '시트1';
    순서를 바꾸면 아래 PHONE_COL / ZIP_COL 번호도 같이 바꿔야 합니다. */
 const HEADERS = [
   '제출일시', '타입', '고료', '이름', '인스타그램', '휴대폰',
-  '이메일', '제품 구성', '우편번호', '배송지 주소', '요청사항'
+  '이메일', '제공 제품 조합', '우편번호', '배송지 주소', '요청사항'
 ];
 const PHONE_COL = 6;   // 휴대폰
 const ZIP_COL   = 9;   // 우편번호
@@ -159,6 +159,7 @@ function onOpen() {
     .createMenu('오헤이오')
     .addItem('현재 탭 타입별로 정렬', 'sortActiveSheetByType')
     .addItem('현재 탭 행 색상 모두 지우기', 'clearRowColors')
+    .addItem('현재 탭 헤더 이름 맞추기', 'syncActiveSheetHeader')
     .addToUi();
 }
 
@@ -172,6 +173,25 @@ function sortActiveSheetByType() {
     { column: 2, ascending: true },   // 타입
     { column: 1, ascending: true }    // 제출일시
   ]);
+}
+
+/**
+ * 현재 탭 1행의 제목만 위 HEADERS로 덮어씁니다. 데이터 행은 건드리지 않습니다.
+ * 컬럼명을 바꿨을 때(예: '제품 구성' → '제공 제품 조합') 기존 탭에 반영하는 용도.
+ * 8월 탭처럼 컬럼 구성이 다른 시트에서는 실행하지 마세요.
+ */
+function syncActiveSheetHeader() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const ui = SpreadsheetApp.getUi();
+
+  const answer = ui.alert(
+    '헤더 이름 맞추기',
+    '"' + sheet.getName() + '" 탭의 1행 제목을 현재 코드 기준으로 덮어씁니다.\n' +
+    '데이터는 그대로입니다. 계속할까요?',
+    ui.ButtonSet.OK_CANCEL);
+  if (answer !== ui.Button.OK) return;
+
+  sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
 }
 
 /** 이미 색이 칠해진 기존 행까지 전부 흰색으로 되돌리기 */
