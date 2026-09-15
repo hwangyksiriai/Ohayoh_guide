@@ -120,12 +120,6 @@ img{max-width:100%;display:block}
 .field input,.field textarea{width:100%;background:var(--white);border:1px solid rgba(92,36,54,.16);border-radius:10px;padding:12px 14px;font-size:16px;font-family:inherit;color:var(--ink)}
 .field textarea{resize:vertical;min-height:70px}
 .field input::placeholder,.field textarea::placeholder{color:#BCA3AD}
-.shade-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.shade-grid.set{grid-template-columns:1fr}
-.shade-item{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid rgba(92,36,54,.16);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s}
-.shade-item input{flex:none;width:16px;height:16px;accent-color:var(--brand)}
-.shade-item.checked{border-color:var(--brand);background:var(--brand-light)}
-.shade-item.disabled{opacity:.45;cursor:not-allowed}
 .zip-row{display:flex;gap:8px}
 .zip-row input{flex:1;min-width:0}
 .zip-btn{flex:none;background:var(--brand-dark);color:#fff;border:none;border-radius:10px;padding:0 18px;font-size:13px;font-weight:700;letter-spacing:-.01em;cursor:pointer;white-space:nowrap}
@@ -158,7 +152,6 @@ img{max-width:100%;display:block}
 @media(max-width:480px){.overview{grid-template-columns:1fr}}
 @media(max-width:380px){
   .hero{min-height:360px;padding:44px 18px 32px}
-  .shade-grid{grid-template-columns:1fr}
   .zip-row{flex-direction:column}
   .zip-btn{width:100%;padding:13px 18px}
   .product-card{flex-direction:column;align-items:flex-start}
@@ -215,7 +208,7 @@ img{max-width:100%;display:block}
       <div class="ov-card full">
         <div class="ov-label">제공 제품</div>
         <div class="ov-value">하이라이터 2종 + 블러셔 2종 (총 4종)</div>
-        <div class="ov-sub">A · B 조합 중 택 1 — 조합당 블러셔 1개 + 하이라이터 1개를 받으시게 됩니다.</div>
+        <div class="ov-sub">4종 전량 제공 — 아래 A · B 두 가지 조합을 콘텐츠에서 각각 소개해 주세요.</div>
       </div>
       <div class="ov-card"><div class="ov-label">형식</div><div class="ov-value">릴스 (Reels)</div></div>
       <div class="ov-card"><div class="ov-label">공동작업자</div><div class="ov-value">필수</div></div>
@@ -239,7 +232,14 @@ img{max-width:100%;display:block}
       </div>
     </div>
     <div class="pd-block">
-      <div class="pd-label">제공 제품 <span class="badge-req">택 1</span></div>
+      <div class="pd-label">제공 제품 <span class="badge-req">4종 전량</span></div>
+      <ul>
+        <li><b>블러셔</b> 06. 라떼핀드 · 07. 로우키인러브</li>
+        <li><b>하이라이터</b> 01. 로우시에나 · 02. 로즈헤이즈</li>
+      </ul>
+    </div>
+    <div class="pd-block">
+      <div class="pd-label">소개할 조합 <span class="badge-req">2가지 모두</span></div>
       <ul>
         <li><b>[A조합]</b> 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나</li>
         <li><b>[B조합]</b> 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈</li>
@@ -279,12 +279,14 @@ img{max-width:100%;display:block}
         <p>브러쉬나 손끝에 하이라이터를 묻혀 텁텁함 없이 맑고 얇게 밀착되는 입자감과, 빛에 따라 반짝이는 실물 펄감을 클로즈업(줌인)으로 연출해 주세요.</p>
       </div>
       <div class="step">
-        <span class="tag-req">필수 · 블러셔 + 하이라이터 함께 연출</span>
-        <p>받으신 조합의 블러셔와 하이라이터를 함께 활용해 주세요. EX) 볼에 블러셔로 혈색을 올린 뒤 광대·콧대에 하이라이터를 얹어 입체감 완성</p>
+        <span class="tag-req">필수 · A · B 두 조합 각각 연출</span>
+        <p>제공된 4종으로 아래 두 조합을 <b>각각</b> 완성해 보여주세요. 두 조합의 분위기 차이가 드러나도록 연출해 주시면 좋습니다.<br>
+        · <b>[A조합]</b> 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나<br>
+        · <b>[B조합]</b> 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈</p>
       </div>
       <div class="step">
         <span class="tag-req">필수 · 손 or 손목 발색</span>
-        <p>손 또는 손목에 블러셔와 하이라이터를 나란히 발색하는 컷을 포함해주세요.</p>
+        <p>손 또는 손목에 4종(블러셔 2종 · 하이라이터 2종)을 나란히 발색해 조합별로 비교되는 컷을 포함해주세요.</p>
       </div>
       <div class="step">
         <span class="tag-req opt">선택 · 블렌딩 노하우 멘트/자막</span>
@@ -314,7 +316,7 @@ img{max-width:100%;display:block}
       <div class="acc-body">
         <ul class="cap-list">
       <li>무스처럼 부드럽게 발리고 보송한 벨벳 결로 마무리되는 무스 에어리 벨벳 블러쉬의 제형과 밀착력을 자유롭게 작성해 주세요.</li>
-      <li>과하지 않게 은은히 올라오는 자연스러운 혈색과, 블러셔·하이라이터를 함께 써서 완성하는 입체적인 톤을 위주로 언급해 주세요.</li>
+      <li>과하지 않게 은은히 올라오는 자연스러운 혈색과, A · B 두 조합이 각각 어떤 분위기를 만들어주는지 비교해 언급해 주세요.</li>
       <li>콧대·광대·애교살 등 원하는 부위를 은은하게 밝혀 이목구비를 또렷하게 살려주는 하이라이터의 광채 연출 효과를 함께 언급해 주세요.</li>
       <li>데일리 메이크업의 생기 포인트로, 가볍게 덧발라도 뭉침 없는 데일리 필수템으로 적극 소구해 주세요.</li>
         </ul>
@@ -379,14 +381,6 @@ img{max-width:100%;display:block}
       <div class="field">
         <label>이메일 <span class="opt">(선택)</span></label>
         <input type="email" name="email" placeholder="name@email.com" />
-      </div>
-      <div class="field">
-        <label>제공 제품 조합 선택 (택 1) <span class="req">*</span></label>
-        <div class="shade-grid set">
-          <label class="shade-item"><input type="radio" name="shadeSet" class="shade-radio" value="[A조합] 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나" /> <span>[A조합] 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나</span></label>
-          <label class="shade-item"><input type="radio" name="shadeSet" class="shade-radio" value="[B조합] 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈" /> <span>[B조합] 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈</span></label>
-        </div>
-        <p style="font-size:11px;color:var(--gray);margin-top:6px">A · B 조합 중 1가지를 선택해주세요.</p>
       </div>
       <div class="field">
         <label>우편번호 <span class="req">*</span></label>
@@ -509,30 +503,18 @@ const phoneInput = document.getElementById('phone');
 instagramInput.addEventListener('blur', function(){ if(this.value.trim()) this.value = normalizeInstagram(this.value); });
 phoneInput.addEventListener('blur', function(){ if(this.value.trim()) this.value = normalizePhone(this.value); });
 
-const shadeRadios = Array.from(document.querySelectorAll('.shade-radio'));
-function updateShadeUI(){
-  shadeRadios.forEach(r => {
-    r.closest('.shade-item').classList.toggle('checked', r.checked);
-  });
-}
-shadeRadios.forEach(r => r.addEventListener('change', updateShadeUI));
-updateShadeUI();
-
 // Google Apps Script 웹앱 배포 URL을 여기에 붙여넣으세요
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzXUbHSFZ7hY4aveKHqtFcL_OPqFCoCRRAHZYBPl4NEwgbo5Gy75L1b3Q_UZrYiYFyb/exec';
 const CAMPAIGN_TYPE = 'D Type 9월';
+const SHIPPED_PRODUCTS = '4종 전량 · 블러셔 06 라떼핀드, 07 로우키인러브 + 하이라이터 01 로우시에나, 02 로즈헤이즈';
 const CAMPAIGN_FEE = '200,000원';
 
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
 
-  const checkedSet = shadeRadios.filter(r => r.checked)[0];
-  if (!checkedSet){
-    alert('제공 제품 조합(A 또는 B)을 선택해주세요.');
-    return;
-  }
-  const selectedShades = checkedSet.value;
+  // 선택 없이 4종 전량 제공 — 시트에는 발송 구성이 그대로 기록됩니다
+  const selectedShades = SHIPPED_PRODUCTS;
 
   const payload = {
     type: CAMPAIGN_TYPE,
