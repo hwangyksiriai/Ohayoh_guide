@@ -1,7 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    오헤이오 캠페인 신청서 수집 스크립트
    - 캠페인(월)별로 기록할 탭을 자동 분리
-   - 탭 안에서는 타입/고료별로 행 색상을 다르게 칠해 구분
+   - 타입/고료 구분은 컬럼 + 헤더 필터로 (행 색상 없음)
    ════════════════════════════════════════════════════════════ */
 
 /* ── 1. 대상 스프레드시트 ──────────────────────────────────
@@ -42,7 +42,8 @@ function doPost(e) {
     const data = JSON.parse(e.postData.contents);
     const type = String(data.type || '');
 
-    const sheet = getOrCreateSheet_(resolveSheetName_(type));
+    const route = resolveSheet_(type);
+    const sheet = getOrCreateSheet_(route.name, route.routed);
 
     const values = [
       new Date(),
@@ -94,14 +95,18 @@ function doGet() {
    내부 함수
    ════════════════════════════════════════════════════════════ */
 
-/** type 값에 맞는 탭 이름을 찾는다 */
-function resolveSheetName_(type) {
+/**
+ * type 값에 맞는 탭을 찾는다.
+ * routed=true 는 이 코드가 만든 캠페인 탭(위 SHEET_ROUTES)이라는 뜻으로,
+ * 이 탭만 헤더를 자동으로 맞춥니다. 기본 탭(8월 등)은 컬럼 구성이 달라 건드리지 않습니다.
+ */
+function resolveSheet_(type) {
   for (let i = 0; i < SHEET_ROUTES.length; i++) {
     if (type.indexOf(SHEET_ROUTES[i].match) !== -1) {
-      return SHEET_ROUTES[i].sheetName;
+      return { name: SHEET_ROUTES[i].sheetName, routed: true };
     }
   }
-  return DEFAULT_SHEET_NAME;
+  return { name: DEFAULT_SHEET_NAME, routed: false };
 }
 
 function getSpreadsheet_() {
@@ -110,13 +115,24 @@ function getSpreadsheet_() {
     : SpreadsheetApp.getActiveSpreadsheet();
 }
 
-/** 탭이 없으면 만들고, 헤더가 없으면 헤더를 세팅한다 */
-function getOrCreateSheet_(name) {
+/**
+ * 탭이 없으면 만들고, 헤더가 없으면 헤더를 세팅한다.
+ * syncHeader=true 면 이미 있는 탭도 1행 제목이 코드와 다를 때 자동으로 맞춥니다.
+ * (컬럼명을 바꿔도 다음 신청이 들어오는 순간 기존 탭에 반영됨. 데이터 행은 건드리지 않음)
+ */
+function getOrCreateSheet_(name, syncHeader) {
   const ss = getSpreadsheet_();
   let sheet = ss.getSheetByName(name);
 
   if (!sheet) {
     sheet = ss.insertSheet(name);
+  }
+
+  if (syncHeader && sheet.getLastRow() > 0) {
+    const head = sheet.getRange(1, 1, 1, HEADERS.length);
+    if (head.getValues()[0].join('||') !== HEADERS.join('||')) {
+      head.setValues([HEADERS]);
+    }
   }
 
   if (sheet.getLastRow() === 0) {
@@ -132,7 +148,7 @@ function getOrCreateSheet_(name) {
     sheet.setColumnWidth(2, 100);   // 타입
     sheet.setColumnWidth(3, 90);    // 고료
     sheet.setColumnWidth(5, 230);   // 인스타그램
-    sheet.setColumnWidth(8, 220);   // 제품 구성
+    sheet.setColumnWidth(8, 220);   // 제공 제품 조합
     sheet.setColumnWidth(10, 300);  // 배송지 주소
     sheet.setColumnWidth(11, 220);  // 요청사항
 
@@ -230,8 +246,8 @@ function 테스트_더미행_넣기() {
           phone: '010-0000-000' + (i + 1),
           email: 'test@example.com',
           shades: i % 2 === 0
-            ? '(A) 06. 라떼핀드 + 01. 로우시에나'
-            : '(B) 07. 로우키인러브 + 02. 로즈헤이즈',
+            ? '[A조합] 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나'
+            : '[B조합] 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈',
           zipcode: '06234',
           address: '서울시 강남구 테헤란로 1 101동 101호',
           note: '테스트 행입니다'
