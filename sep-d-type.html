@@ -506,15 +506,11 @@ phoneInput.addEventListener('blur', function(){ if(this.value.trim()) this.value
 // Google Apps Script 웹앱 배포 URL을 여기에 붙여넣으세요
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzXUbHSFZ7hY4aveKHqtFcL_OPqFCoCRRAHZYBPl4NEwgbo5Gy75L1b3Q_UZrYiYFyb/exec';
 const CAMPAIGN_TYPE = 'D Type 9월';
-const SHIPPED_PRODUCTS = '4종 전량 · 블러셔 06 라떼핀드, 07 로우키인러브 + 하이라이터 01 로우시에나, 02 로즈헤이즈';
 const CAMPAIGN_FEE = '200,000원';
 
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
-
-  // 선택 없이 4종 전량 제공 — 시트에는 발송 구성이 그대로 기록됩니다
-  const selectedShades = SHIPPED_PRODUCTS;
 
   const payload = {
     type: CAMPAIGN_TYPE,
@@ -523,7 +519,6 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
     instagram: normalizeInstagram(form.instagram.value),
     phone: normalizePhone(form.phone.value),
     email: form.email.value.trim(),
-    shades: selectedShades,
     zipcode: form.zipcode.value.trim(),
     address: `${form.address.value.trim()} ${form.addressDetail.value.trim()}`.trim(),
     note: form.note.value.trim()

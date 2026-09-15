@@ -125,6 +125,12 @@ img{max-width:100%;display:block}
 .agree-row .a-sub{font-size:11px;color:var(--gray);margin-top:2px;font-weight:400}
 .submit-btn{width:100%;background:var(--brand-dark);color:#fff;border:none;border-radius:14px;padding:17px;font-size:15px;font-weight:800;letter-spacing:-.01em;cursor:pointer;margin-top:8px;min-height:52px}
 .submit-btn:active{opacity:.9}
+.submit-btn:disabled{background:var(--gray);cursor:not-allowed;opacity:.65}
+.closed-banner{background:#3E2C22;color:#fff;text-align:center;padding:16px 20px;font-size:14px;font-weight:800;letter-spacing:-.01em;line-height:1.55}
+.closed-banner span{display:block;font-size:12px;font-weight:500;opacity:.8;margin-top:4px;letter-spacing:0}
+.closed-box{background:#FBEFE9;border:1px solid rgba(184,80,46,.3);border-radius:14px;padding:18px;margin-bottom:18px;text-align:center}
+.closed-box b{display:block;font-size:15px;color:#9A4A2A;margin-bottom:6px;letter-spacing:-.01em}
+.closed-box p{font-size:12px;color:var(--gray);line-height:1.6}
 
 /* CAPTION / COPY BLOCK */
 .copybox{background:var(--white);border:1px dashed var(--brand);border-radius:14px;padding:16px;font-size:13px;white-space:pre-wrap;position:relative;color:var(--ink)}
@@ -159,6 +165,12 @@ img{max-width:100%;display:block}
     <div class="hero-badge">INFLUENCER GUIDELINE</div>
     <h1>오헤이오 가이드라인</h1>
     <div class="hero-sub">OHAYOH × CREATOR CAMPAIGN</div>
+  </div>
+
+  <!-- ░░ 모집 마감 ░░ -->
+  <div class="closed-banner">
+    8월 하이라이트 캠페인 모집이 마감되었습니다
+    <span>본 페이지는 진행 내용 확인용으로만 유지됩니다.</span>
   </div>
 
   <!-- ░░ ABOUT BRAND ░░ -->
@@ -317,6 +329,10 @@ img{max-width:100%;display:block}
   <div class="section">
     <div class="eyebrow">Application</div>
     <div class="section-title">캠페인 신청</div>
+    <div class="closed-box">
+      <b>모집이 마감되었습니다</b>
+      <p>8월 하이라이트 캠페인 지원 접수는 종료되어 더 이상 신청서를 받지 않습니다.<br>진행 중인 캠페인은 담당자에게 문의해 주세요.</p>
+    </div>
     <form id="applyForm">
       <div class="field">
         <label>이름 <span class="req">*</span></label>
@@ -388,7 +404,7 @@ img{max-width:100%;display:block}
         </span>
       </label>
 
-      <button type="submit" class="submit-btn">오헤이오 캠페인 지원서 제출하기</button>
+      <button type="submit" class="submit-btn" disabled>모집 마감</button>
     </form>
   </div>
 
@@ -530,6 +546,14 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
     submitBtn.textContent = '오헤이오 캠페인 지원서 제출하기';
   });
 });
+
+// 모집 마감 — 입력란과 버튼을 모두 잠급니다.
+// 색상 선택 로직(updateShadeUI)이 체크박스를 다시 켜므로 반드시 스크립트 맨 끝에서 실행합니다.
+document.querySelectorAll('#applyForm input, #applyForm textarea, #applyForm button').forEach(function(el){
+  el.disabled = true;
+  el.required = false;
+});
+
 </script>
 </body>
 </html>

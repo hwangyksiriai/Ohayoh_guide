@@ -24,10 +24,10 @@ const DEFAULT_SHEET_NAME = '시트1';
    순서를 바꾸면 아래 PHONE_COL / ZIP_COL 번호도 같이 바꿔야 합니다. */
 const HEADERS = [
   '제출일시', '타입', '고료', '이름', '인스타그램', '휴대폰',
-  '이메일', '제공 제품 조합', '우편번호', '배송지 주소', '요청사항'
+  '이메일', '우편번호', '배송지 주소', '요청사항'
 ];
 const PHONE_COL = 6;   // 휴대폰
-const ZIP_COL   = 9;   // 우편번호
+const ZIP_COL   = 8;   // 우편번호
 
 
 /* ════════════════════════════════════════════════════════════
@@ -53,7 +53,6 @@ function doPost(e) {
       data.instagram || '',
       data.phone || '',
       data.email || '',
-      data.shades || '',
       data.zipcode || '',
       data.address || '',
       data.note || ''
@@ -148,9 +147,8 @@ function getOrCreateSheet_(name, syncHeader) {
     sheet.setColumnWidth(2, 100);   // 타입
     sheet.setColumnWidth(3, 90);    // 고료
     sheet.setColumnWidth(5, 230);   // 인스타그램
-    sheet.setColumnWidth(8, 220);   // 제공 제품 조합
-    sheet.setColumnWidth(10, 300);  // 배송지 주소
-    sheet.setColumnWidth(11, 220);  // 요청사항
+    sheet.setColumnWidth(9, 300);   // 배송지 주소
+    sheet.setColumnWidth(10, 220);  // 요청사항
 
     if (!sheet.getFilter()) {
       sheet.getRange(1, 1, 1, HEADERS.length).createFilter();
@@ -245,9 +243,6 @@ function 테스트_더미행_넣기() {
           instagram: 'https://www.instagram.com/test' + (i + 1),
           phone: '010-0000-000' + (i + 1),
           email: 'test@example.com',
-          shades: i % 2 === 0
-            ? '[A조합] 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나'
-            : '[B조합] 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈',
           zipcode: '06234',
           address: '서울시 강남구 테헤란로 1 101동 101호',
           note: '테스트 행입니다'

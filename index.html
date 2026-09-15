@@ -49,6 +49,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .folder-card .f-sub{font-size:12px;color:var(--gray);margin-top:3px}
 .folder-card .f-right{display:flex;align-items:center;gap:10px;flex:none}
 .folder-card .f-count{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-light);border-radius:100px;padding:4px 10px}
+.folder-card.closed{opacity:.72}
+.folder-card .f-closed{font-size:11px;font-weight:700;color:#fff;background:var(--gray);border-radius:100px;padding:4px 10px}
 .folder-card .arrow{color:var(--brand);font-weight:900;font-size:18px}
 
 /* LIST VIEW */
@@ -116,6 +118,7 @@ const FOLDERS = [
     icon: '✨',
     name: '8월 하이라이트 진행',
     sub: '플래시 베일 하이라이터',
+    closed: true,
     items: [
       { badge: 'A', title: 'A Type · 5만원',     sub: '크리에이터 가이드', href: 'a-type.html' },
       { badge: 'B', title: 'B Type · 10만원',    sub: '크리에이터 가이드', href: 'b-type.html' },
@@ -160,7 +163,7 @@ function renderFolders(){
   folderView.innerHTML =
     '<div class="hub-eyebrow">Campaign Folders</div>' +
     FOLDERS.map(function(f){
-      return '<button class="folder-card" type="button" data-folder="' + esc(f.id) + '">' +
+      return '<button class="folder-card' + (f.closed ? ' closed' : '') + '" type="button" data-folder="' + esc(f.id) + '">' +
                '<div class="f-left">' +
                  '<div class="f-icon">' + esc(f.icon) + '</div>' +
                  '<div>' +
@@ -169,6 +172,7 @@ function renderFolders(){
                  '</div>' +
                '</div>' +
                '<div class="f-right">' +
+                 (f.closed ? '<span class="f-closed">마감</span>' : '') +
                  '<span class="f-count">' + f.items.length + '종</span>' +
                  '<span class="arrow">→</span>' +
                '</div>' +
@@ -180,7 +184,8 @@ function renderList(folder){
   listView.innerHTML =
     '<button class="back-btn" type="button" id="backBtn">← 폴더 목록</button>' +
     '<div class="list-head"><h2>' + esc(folder.name) + '</h2>' +
-      '<p>' + esc(folder.sub) + ' · 가이드라인 ' + folder.items.length + '종</p></div>' +
+      '<p>' + esc(folder.sub) + ' · 가이드라인 ' + folder.items.length + '종' +
+      (folder.closed ? ' · <b>모집 마감</b>' : '') + '</p></div>' +
     folder.items.map(function(it){
       return '<a class="hub-card" href="' + esc(it.href) + '">' +
                '<div class="h-left"><div class="h-num">' + esc(it.badge) + '</div>' +
