@@ -18,7 +18,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;word-wrap:break-word}
-.wrap{max-width:680px;margin:0 auto;padding-bottom:72px}
+.wrap{max-width:680px;margin:0 auto;padding-bottom:calc(72px + env(safe-area-inset-bottom));padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
 img{max-width:100%;display:block}
 
 /* HERO */
@@ -43,7 +43,7 @@ img{max-width:100%;display:block}
 .feat-card{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px}
 .feat-card b{display:block;font-size:14px;letter-spacing:-.01em;color:var(--brand-dark);margin-bottom:4px}
 .feat-card span{font-size:13px;color:var(--gray)}
-.brand-link{display:inline-block;color:var(--brand-dark);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--brand);padding-bottom:2px}
+.brand-link{display:inline-flex;align-items:center;min-height:44px;color:var(--brand-dark);font-size:13px;font-weight:700;text-decoration:none;box-shadow:inset 0 -1px 0 var(--brand)}
 
 /* OVERVIEW GRID */
 .overview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -55,7 +55,7 @@ img{max-width:100%;display:block}
 .product-card{display:flex;gap:14px;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px;margin-top:12px}
 .product-card img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:none;background:#f2eeea}
 .product-card .pname{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
-.product-card a{font-size:12px;color:var(--brand-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--brand)}
+.product-card a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--brand-dark);font-weight:600;text-decoration:none;box-shadow:inset 0 -1px 0 var(--brand)}
 .pd-block{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px;margin-top:12px}
 .pd-block .pd-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brand-dark);font-weight:700;margin-bottom:8px;text-transform:uppercase}
 .pd-block p{font-size:13px;color:var(--gray)}
@@ -134,7 +134,7 @@ img{max-width:100%;display:block}
 
 /* CAPTION / COPY BLOCK */
 .copybox{background:var(--white);border:1px dashed var(--brand);border-radius:14px;padding:16px;font-size:13px;white-space:pre-wrap;position:relative;color:var(--ink)}
-.copybtn{position:absolute;top:10px;right:10px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:11px;padding:6px 12px;cursor:pointer}
+.copybtn{position:absolute;top:6px;right:6px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:12px;padding:0 14px;min-height:44px;min-width:62px;cursor:pointer}
 .copybtn.done{background:var(--brand)}
 .settle-list{list-style:none;font-size:13px;color:var(--gray);margin:12px 0;padding-left:2px}
 .settle-list li{padding-left:16px;position:relative;margin-bottom:4px}
