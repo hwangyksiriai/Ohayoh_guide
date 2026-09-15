@@ -5,16 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OHAYOH — D Type 9월 가이드라인</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
 :root{
-  --brand:#C89478;
-  --brand-dark:#3E2C22;
-  --brand-light:#F3E1D6;
-  --bg:#FBF7F3;
-  --ink:#2A2119; --gray:#8A7A70; --white:#fff;
+  --brand:#D4718C;
+  --brand-dark:#5C2436;
+  --brand-light:#FBE3EA;
+  --bg:#FDF4F7;
+  --ink:#32202A; --gray:#8C737D; --white:#fff;
   --sans:'Helvetica Neue',Helvetica,Arial,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  --mono:'JetBrains Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -25,40 +24,41 @@ img{max-width:100%;display:block}
 /* HERO */
 .hero{position:relative;color:#fff;text-align:center;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:56px 24px 44px}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right 20%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,32,22,.25) 0%,rgba(46,32,22,.35) 40%,rgba(38,26,18,.92) 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,24,38,.22) 0%,rgba(58,24,38,.32) 40%,rgba(50,20,32,.90) 100%)}
 .hero-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:100px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;margin-bottom:18px;position:relative;backdrop-filter:blur(2px)}
 .hero h1{font-size:clamp(32px,9.5vw,50px);font-weight:900;letter-spacing:-.01em;position:relative}
-.hero-sub{font-size:12px;opacity:.85;margin-top:8px;letter-spacing:.12em;position:relative;font-family:var(--mono)}
+.hero-sub{font-size:12px;opacity:.85;margin-top:8px;letter-spacing:.12em;position:relative;font-family:var(--sans)}
 
 /* SECTION */
-.section{padding:clamp(28px,7vw,40px) clamp(18px,5vw,24px);border-bottom:1px solid rgba(42,33,25,.08)}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--brand);font-weight:500;margin-bottom:6px;text-transform:uppercase}
+.section{padding:clamp(28px,7vw,40px) clamp(18px,5vw,24px);border-bottom:1px solid rgba(92,36,54,.08)}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.18em;color:var(--brand);font-weight:500;margin-bottom:6px;text-transform:uppercase}
 .section-title{font-size:clamp(18px,5vw,20px);font-weight:900;letter-spacing:-.01em;margin-bottom:18px}
 .badge-req{display:inline-block;background:var(--brand);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:2px 8px;vertical-align:middle;margin-left:6px}
-.badge-opt{display:inline-block;background:rgba(42,33,25,.08);color:var(--gray);font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:2px 8px;vertical-align:middle;margin-left:6px}
+.badge-opt{display:inline-block;background:rgba(92,36,54,.08);color:var(--gray);font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:2px 8px;vertical-align:middle;margin-left:6px}
 
 /* ABOUT */
 .about-lead{font-size:15px;font-weight:700;margin-bottom:10px}
-.about-desc{font-size:14px;color:var(--gray);margin-bottom:22px}
+.about-desc{font-size:14px;color:var(--gray);margin-bottom:16px}
+.brand-img{display:block;width:100%;height:auto;border-radius:16px;margin-bottom:22px;background:#F7EAEF}
 .feat-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
-.feat-card{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px}
+.feat-card{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:16px}
 .feat-card b{display:block;font-size:14px;letter-spacing:-.01em;color:var(--brand-dark);margin-bottom:4px}
 .feat-card span{font-size:13px;color:var(--gray)}
 .brand-link{display:inline-block;color:var(--brand-dark);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--brand);padding-bottom:2px}
 
 /* OVERVIEW GRID */
 .overview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ov-card{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px}
+.ov-card{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:16px}
 .ov-card.full{grid-column:1/-1}
-.ov-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.ov-label{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
 .ov-value{font-size:15px;font-weight:700;letter-spacing:-.01em}
 .ov-note{font-size:11px;color:#B5502E;margin-top:4px;font-weight:500}
-.product-card{display:flex;gap:14px;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px;margin-top:12px}
-.product-card img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:none;background:#f2eeea}
+.product-card{display:flex;gap:14px;align-items:center;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px;margin-top:12px}
+.product-card img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:none;background:#F7EAEF}
 .product-card .pname{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
 .product-card a{font-size:12px;color:var(--brand-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--brand)}
-.pd-block{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:16px;margin-top:12px}
-.pd-block .pd-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brand-dark);font-weight:700;margin-bottom:8px;text-transform:uppercase}
+.pd-block{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:16px;margin-top:12px}
+.pd-block .pd-label{font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--brand-dark);font-weight:700;margin-bottom:8px;text-transform:uppercase}
 .pd-block p{font-size:13px;color:var(--gray)}
 .pd-block ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .pd-block li{font-size:13px;color:var(--gray);padding-left:14px;position:relative}
@@ -69,26 +69,34 @@ img{max-width:100%;display:block}
 
 /* STEPS */
 .subhead{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:900;margin:22px 0 12px}
-.subhead .num2{font-family:var(--mono);font-size:11px;color:var(--brand-dark);background:var(--brand-light);border-radius:8px;padding:3px 8px;font-weight:500}
+.subhead .num2{font-family:var(--sans);font-size:11px;color:var(--brand-dark);background:var(--brand-light);border-radius:8px;padding:3px 8px;font-weight:500}
 .steps{display:flex;flex-direction:column;gap:10px}
-.step{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px}
+.acc{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;margin-top:10px;overflow:hidden}
+.acc summary{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:900;letter-spacing:-.01em;padding:16px;cursor:pointer;list-style:none;min-height:56px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:'';margin-left:auto;flex:none;width:8px;height:8px;border-right:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+.acc[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
+.acc .acc-body{padding:0 16px 16px}
+.acc .acc-body>*:first-child{margin-top:0}
+.acc .acc-body .step,.acc .acc-body .note-box,.acc .acc-body .cap-list li{background:var(--bg);border-color:transparent}
+.step{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px}
 .step .tag-req{color:var(--brand-dark);font-weight:800;font-size:13px;letter-spacing:-.01em;display:block;margin-bottom:4px}
 .step .tag-req.opt{color:var(--gray)}
 .step p{font-size:13px;color:var(--gray)}
-.note-box{background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
+.note-box{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
 .concept-box{background:var(--ink);color:#fff;border-radius:16px;padding:18px;margin:14px 0 4px}
-.concept-box .cb-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-light);font-weight:700;margin-bottom:10px}
+.concept-box .cb-label{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-light);font-weight:700;margin-bottom:10px}
 .concept-box .cb-tags{display:flex;flex-wrap:wrap;gap:8px}
 .concept-box .cb-tags span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);border-radius:100px;font-size:15px;font-weight:800;letter-spacing:-.01em;padding:8px 16px}
 .concept-box p{font-size:12px;color:rgba(255,255,255,.78);margin-top:12px;line-height:1.6}
 .cap-list{display:flex;flex-direction:column;gap:10px}
-.cap-list li{list-style:none;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
+.cap-list li{list-style:none;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
 .changeable{font-size:12px;color:var(--brand-dark);background:var(--brand-light);border-radius:10px;padding:8px 12px;margin-top:12px;font-weight:500}
 
 /* HASHTAG CHIPS */
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .tag{background:var(--brand-light);color:var(--brand-dark);font-size:13px;font-weight:500;border-radius:100px;padding:6px 14px}
-.collab-box{margin-top:16px;display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 16px}
+.collab-box{margin-top:16px;display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px}
 .collab-box .l{font-size:12px;color:var(--gray)}
 .collab-box .v{font-size:14px;font-weight:700;letter-spacing:-.01em;color:var(--brand-dark)}
 
@@ -100,7 +108,7 @@ img{max-width:100%;display:block}
 
 /* REFERENCE */
 .ref-list{display:flex;flex-direction:column;gap:8px}
-.ref-item{display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid rgba(42,33,25,.1);border-radius:14px;padding:14px 18px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500;letter-spacing:-.01em;min-height:48px}
+.ref-item{display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 18px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500;letter-spacing:-.01em;min-height:48px}
 .ref-item span.arrow{color:var(--brand);font-weight:900}
 
 /* APPLICATION FORM */
@@ -108,12 +116,12 @@ img{max-width:100%;display:block}
 .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
 .field label .req{color:var(--brand)}
 .field label .opt{color:var(--gray);font-weight:400}
-.field input,.field textarea{width:100%;background:var(--white);border:1px solid rgba(42,33,25,.18);border-radius:10px;padding:12px 14px;font-size:16px;font-family:inherit;color:var(--ink)}
+.field input,.field textarea{width:100%;background:var(--white);border:1px solid rgba(92,36,54,.16);border-radius:10px;padding:12px 14px;font-size:16px;font-family:inherit;color:var(--ink)}
 .field textarea{resize:vertical;min-height:70px}
-.field input::placeholder,.field textarea::placeholder{color:#B8A99E}
+.field input::placeholder,.field textarea::placeholder{color:#BCA3AD}
 .shade-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .shade-grid.set{grid-template-columns:1fr}
-.shade-item{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid rgba(42,33,25,.18);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s}
+.shade-item{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid rgba(92,36,54,.16);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s}
 .shade-item input{flex:none;width:16px;height:16px;accent-color:var(--brand)}
 .shade-item.checked{border-color:var(--brand);background:var(--brand-light)}
 .shade-item.disabled{opacity:.45;cursor:not-allowed}
@@ -174,6 +182,7 @@ img{max-width:100%;display:block}
     <div class="eyebrow">About Brand</div>
     <div class="section-title">투명하고 맑은 발색의 색조 뷰티, 오헤이오</div>
     <p class="about-desc">Ohayoh(오헤이오)는 가볍게, 때로는 강렬하게 당신의 아름다움에 감탄 'OH!'을 더합니다.<br><br>평범한 일상 속 자연스럽게 스며들어 나만의 매력을 표현해주는 뷰티 브랜드입니다.</p>
+    <img class="brand-img" src="브랜드.png" alt="OHAYOH 브랜드 이미지" loading="lazy" />
     <div class="feat-grid">
       <div class="feat-card">
         <b>자연스럽고 맑은 연출</b>
@@ -210,6 +219,13 @@ img{max-width:100%;display:block}
       <div class="ov-card full"><div class="ov-label">스토리 업로드</div><div class="ov-value">게시물 업로드 후 필수</div></div>
     </div>
     <div class="product-card">
+      <img src="제품.PNG" alt="오헤이오 플래시 베일 하이라이터" />
+      <div>
+        <div class="pname">오헤이오 플래시 베일 하이라이터</div>
+        <a href="https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000260584" target="_blank">제품 상세 보기 →</a>
+      </div>
+    </div>
+    <div class="product-card">
       <img src="제품2.png" alt="오헤이오 무스 에어리 벨벳 블러쉬" />
       <div>
         <div class="pname">오헤이오 무스 에어리 벨벳 블러쉬 (A·B 구성 중 택 1)</div>
@@ -217,10 +233,17 @@ img{max-width:100%;display:block}
       </div>
     </div>
     <div class="pd-block">
+      <div class="pd-label">제공 제품</div>
+      <ul>
+        <li><b>플래시 베일 하이라이터</b></li>
+        <li><b>무스 에어리 벨벳 블러쉬</b> — 아래 A · B 구성 중 택 1</li>
+      </ul>
+    </div>
+    <div class="pd-block">
       <div class="pd-label">구성 <span class="badge-req">택 1</span></div>
       <ul>
-        <li><b>(A)</b> 06. 라떼핀드 + 01. 로우시에나</li>
-        <li><b>(B)</b> 07. 로우키인러브 + 02. 로즈헤이즈</li>
+        <li><b>(A)</b> 하이라이터 + 06. 라떼핀드 + 01. 로우시에나</li>
+        <li><b>(B)</b> 하이라이터 + 07. 로우키인러브 + 02. 로즈헤이즈</li>
       </ul>
     </div>
   </div>
@@ -240,8 +263,10 @@ img{max-width:100%;display:block}
       <p>위 두 가지가 이번 캠페인의 메인 컨셉입니다. 영상 톤 &amp; 무드, 메이크업 연출, 캡션 전반에 두 컨셉이 드러나도록 제작해 주세요.</p>
     </div>
 
-    <div class="subhead"><span class="num2">1</span> [영상]</div>
-    <div class="steps">
+    <details class="acc" open>
+      <summary><span class="num2">1</span> [영상]</summary>
+      <div class="acc-body">
+        <div class="steps">
       <div class="step">
         <span class="tag-req">필수 · 사용 전후 Before &amp; After</span>
         <p>사용 전(혈색 없이 밋밋한 얼굴)과 사용 후(볼에 은은하게 차오르는 혈색과 보송한 벨벳 결)의 변화를 직관적으로 보여주는 B&amp;A 컷을 넣어주세요.</p>
@@ -266,30 +291,43 @@ img{max-width:100%;display:block}
         <span class="tag-req opt">선택 · 지속력 &amp; 밀착력 강조</span>
         <p>시간이 지나도 뭉치거나 날아가지 않고 처음 발색 그대로 유지되는 지속력과, 모공·요철 부각 없이 가볍게 밀착되는 모습을 강조해 주세요.</p>
       </div>
-    </div>
+        </div>
+      </div>
+    </details>
 
-    <div class="subhead"><span class="num2">2</span> [촬영 팁]</div>
-    <div class="note-box">제품 패키지와 컬러가 왜곡 없이 실물 그대로 나타나도록 조명 아래나 자연광이 드는 매끈한 배경에서 고화질로 촬영해 주세요.</div>
+    <details class="acc">
+      <summary><span class="num2">2</span> [촬영 팁]</summary>
+      <div class="acc-body">
+        <div class="note-box">제품 패키지와 컬러가 왜곡 없이 실물 그대로 나타나도록 조명 아래나 자연광이 드는 매끈한 배경에서 고화질로 촬영해 주세요.</div>
+      </div>
+    </details>
 
-    <div class="subhead"><span class="num2">3</span> [캡션]</div>
-    <ul class="cap-list">
+    <details class="acc">
+      <summary><span class="num2">3</span> [캡션]</summary>
+      <div class="acc-body">
+        <ul class="cap-list">
       <li>무스처럼 부드럽게 발리고 보송한 벨벳 결로 마무리되는 무스 에어리 벨벳 블러쉬의 제형과 밀착력을 자유롭게 작성해 주세요.</li>
       <li>과하지 않게 은은히 올라오는 자연스러운 혈색과, 컬러 2가지를 믹스해 나만의 톤을 완성할 수 있는 활용도를 위주로 언급해 주세요.</li>
       <li>데일리 메이크업의 생기 포인트로, 가볍게 덧발라도 뭉침 없는 데일리 필수템으로 적극 소구해 주세요.</li>
-    </ul>
+        </ul>
+        <div class="changeable">※ 자세한 촬영·콘텐츠 가이드는 추후 브랜드 사정에 따라 변경되어 별도 전달될 수 있습니다.</div>
+      </div>
+    </details>
 
-    <div class="changeable">※ 자세한 촬영·콘텐츠 가이드는 추후 브랜드 사정에 따라 변경되어 별도 전달될 수 있습니다.</div>
-
-    <div class="subhead"><span class="num2">4</span> 해시태그 <span class="badge-req">필수</span></div>
-    <div class="tags">
+    <details class="acc">
+      <summary><span class="num2">4</span> 해시태그 <span class="badge-req">필수</span></summary>
+      <div class="acc-body">
+        <div class="tags">
       <span class="tag">#오헤이오</span>
       <span class="tag">#OHAYOH</span>
       <span class="tag">#무스에어리벨벳블러쉬</span>
       <span class="tag">#오헤이오블러쉬</span>
       <span class="tag">#가을메이크업</span>
       <span class="tag">#어른여자메이크업</span>
-    </div>
-    <div class="changeable">※ 해시태그는 추후 변경될 수 있습니다.</div>
+        </div>
+        <div class="changeable">※ 해시태그는 추후 변경될 수 있습니다.</div>
+      </div>
+    </details>
 
     <div class="collab-box">
       <div>
@@ -336,8 +374,8 @@ img{max-width:100%;display:block}
       <div class="field">
         <label>제품 구성 선택 (택 1) <span class="req">*</span></label>
         <div class="shade-grid set">
-          <label class="shade-item"><input type="radio" name="shadeSet" class="shade-radio" value="(A) 06. 라떼핀드 + 01. 로우시에나" /> <span>(A) 06. 라떼핀드 + 01. 로우시에나</span></label>
-          <label class="shade-item"><input type="radio" name="shadeSet" class="shade-radio" value="(B) 07. 로우키인러브 + 02. 로즈헤이즈" /> <span>(B) 07. 로우키인러브 + 02. 로즈헤이즈</span></label>
+          <label class="shade-item"><input type="radio" name="shadeSet" class="shade-radio" value="(A) 하이라이터 + 06. 라떼핀드 + 01. 로우시에나" /> <span>(A) 하이라이터 + 06. 라떼핀드 + 01. 로우시에나</span></label>
+          <label class="shade-item"><input type="radio" name="shadeSet" class="shade-radio" value="(B) 하이라이터 + 07. 로우키인러브 + 02. 로즈헤이즈" /> <span>(B) 하이라이터 + 07. 로우키인러브 + 02. 로즈헤이즈</span></label>
         </div>
         <p style="font-size:11px;color:var(--gray);margin-top:6px">A · B 구성 중 1가지를 선택해주세요.</p>
       </div>
