@@ -56,7 +56,8 @@ img{max-width:100%;display:block}
 .ov-sub{font-size:11px;color:var(--gray);margin-top:4px;font-weight:500;line-height:1.5}
 .product-card{display:flex;gap:14px;align-items:center;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px;margin-top:12px}
 .product-card img{width:88px;height:88px;object-fit:cover;border-radius:10px;flex:none;background:#F7EAEF}
-.product-card .pname{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.product-card .pname{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:2px}
+.product-card .pmeta{font-size:11px;color:var(--gray);margin-bottom:6px;letter-spacing:0}
 .product-card a{font-size:12px;color:var(--brand-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--brand)}
 .pd-block{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:16px;margin-top:12px}
 .pd-block .pd-label{font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--brand-dark);font-weight:700;margin-bottom:8px;text-transform:uppercase}
@@ -85,13 +86,18 @@ img{max-width:100%;display:block}
 .step .tag-req.opt{color:var(--gray)}
 .step p{font-size:13px;color:var(--gray)}
 .note-box{background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
+.ref-img{margin-top:14px}
+.ref-img .ref-label{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:700;margin-bottom:6px}
+.ref-img img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid rgba(92,36,54,.1);background:var(--white)}
 .concept-box{background:var(--ink);color:#fff;border-radius:16px;padding:18px;margin:14px 0 4px}
 .concept-box .cb-label{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-light);font-weight:700;margin-bottom:10px}
 .concept-box .cb-tags{display:flex;flex-wrap:wrap;gap:8px}
 .concept-box .cb-tags span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);border-radius:100px;font-size:15px;font-weight:800;letter-spacing:-.01em;padding:8px 16px}
 .concept-box p{font-size:12px;color:rgba(255,255,255,.78);margin-top:12px;line-height:1.6}
 .cap-list{display:flex;flex-direction:column;gap:10px}
-.cap-list li{list-style:none;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray)}
+.cap-list li{list-style:none;background:var(--white);border:1px solid rgba(92,36,54,.1);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--gray);line-height:1.65}
+.cap-list li b{color:var(--brand-dark)}
+.note-box b{color:var(--brand-dark)}
 .changeable{font-size:12px;color:var(--brand-dark);background:var(--brand-light);border-radius:10px;padding:8px 12px;margin-top:12px;font-weight:500}
 
 /* HASHTAG CHIPS */
@@ -220,29 +226,71 @@ img{max-width:100%;display:block}
     <div class="product-card">
       <img src="제품.PNG" alt="오헤이오 플래시 베일 하이라이터" />
       <div>
-        <div class="pname">오헤이오 플래시 베일 하이라이터</div>
+        <div class="pname">플래시 베일 하이라이터</div>
+        <div class="pmeta">Flash Veil Highlighter · 4 SKU · 20,000원</div>
         <a href="https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000260584" target="_blank">제품 상세 보기 →</a>
       </div>
     </div>
+    <div class="pd-block">
+      <div class="pd-label">컨셉</div>
+      <p>플래시를 켠 듯 반짝이는 펄이 가볍게 밀착되어<br>나만의 분위기를 선명하게 연출하는 하이라이터</p>
+    </div>
+    <div class="pd-block">
+      <div class="pd-label">특징</div>
+      <ul>
+        <li>다양한 컬러감으로 <b>원하는 추구미를 완성</b>해주는 몽환적인 컬러</li>
+        <li>촉촉하고 부드러운 텍스처가 피부에 <b>베일처럼 들뜸 없이 밀착</b></li>
+        <li><b>자연스러운 광감</b>을 내는 간섭 펄을 적용한 영롱한 광감</li>
+        <li><b>다크닝 현상 억제</b>로 시간이 지나도 처음과 같은 화사하고 러블리한 컬러 유지</li>
+      </ul>
+    </div>
+    <div class="usp-box"><b>USP</b>플래시를 받은 듯 선명하게 반짝이는 펄이 베일처럼 밀착되어 입체적인 광채를 완성!</div>
+
     <div class="product-card">
       <img src="제품2.png" alt="오헤이오 무스 에어리 벨벳 블러쉬" />
       <div>
-        <div class="pname">오헤이오 무스 에어리 벨벳 블러쉬</div>
+        <div class="pname">무스 에어리 벨벳 블러쉬</div>
+        <div class="pmeta">Mousse Airy Velvet Blush · 8 SKU · 17,000원</div>
         <a href="https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000235878&amp;dispCatNo=9000002&amp;trackingCd=BrandA020153_PROD&amp;t_page=%EB%B8%8C%EB%9E%9C%EB%93%9C%EA%B4%80&amp;t_click=%EC%A0%84%EC%B2%B4%EC%83%81%ED%92%88__%EC%83%81%ED%92%88%EC%83%81%EC%84%B8&amp;t_number=1" target="_blank">제품 상세 보기 →</a>
       </div>
     </div>
     <div class="pd-block">
+      <div class="pd-label">컨셉</div>
+      <p>자연스러운 생기가 두 뺨 위로 투명하게 스며드는<br>에어리 벨벳 블러쉬</p>
+    </div>
+    <div class="pd-block">
+      <div class="pd-label">특징</div>
+      <ul>
+        <li>폭신한 젤리와 부드러운 크림 제형의 장점만을 합친 <b>신개념 젤러블 텍스처</b></li>
+        <li>촉촉한 사용감과 보송한 마무리감으로 가루 날림과 끈적임이 없어 <b>베이스 밀림 NO</b></li>
+        <li>쌓을수록 선명하게 맑아지는 <b>투명 수채화 발색</b></li>
+        <li><b>블러 처리한 듯</b> 울퉁불퉁한 피부 굴곡을 매끈하게 커버</li>
+        <li>자연스러운 블렌딩으로 가볍고 보송하게 밀착되어 <b>오랜 시간 유지되는 생기</b></li>
+        <li>별도의 TOOL 없이 <b>손으로도 뭉침 없이 발리는 발림성</b></li>
+      </ul>
+    </div>
+
+    <div class="pd-block">
       <div class="pd-label">제공 제품 <span class="badge-req">4종 전량</span></div>
       <ul>
-        <li><b>블러셔</b> 06. 라떼핀드 · 07. 로우키인러브</li>
-        <li><b>하이라이터</b> 01. 로우시에나 · 02. 로즈헤이즈</li>
+        <li><b>하이라이터</b> 01. 로우 시에나 (웜) · 02. 로즈 헤이즈 (뉴트럴)</li>
+        <li><b>블러셔</b> 06. 라떼 핀드 · 07. 로우키 인 러브</li>
       </ul>
     </div>
     <div class="pd-block">
-      <div class="pd-label">소개할 조합 <span class="badge-req">2가지 모두</span></div>
+      <div class="pd-label">컬러 설명</div>
       <ul>
-        <li><b>[A조합]</b> 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나</li>
-        <li><b>[B조합]</b> 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈</li>
+        <li><b>01 로우 시에나</b> · 부드럽게 스며들듯 어우러져 투명하게 빛나는 베이지 광</li>
+        <li><b>02 로즈 헤이즈</b> · 투명한 설탕 베이스에 핑크 한 방울을 더한 맑고 여리게 빛나는 핑크 광</li>
+        <li><b>06 라떼 핀드</b> · 살짝 구워진 라떼빛, 부드럽게 멀멀한 밀키 토스트 컬러</li>
+        <li><b>07 로우키 인 러브</b> · 첫사랑처럼 포근하고 설레는 뉴트럴 핑크에 뮤트한 브라운 한 방울</li>
+      </ul>
+    </div>
+    <div class="pd-block">
+      <div class="pd-label">소개할 조합 <span class="badge-req">2가지 모두 필수 노출</span></div>
+      <ul>
+        <li><b>[A조합]</b> 하이라이터 01. 로우 시에나 + 블러셔 06. 라떼 핀드</li>
+        <li><b>[B조합]</b> 하이라이터 02. 로즈 헤이즈 + 블러셔 07. 로우키 인 러브</li>
       </ul>
     </div>
   </div>
@@ -251,7 +299,7 @@ img{max-width:100%;display:block}
   <div class="section">
     <div class="eyebrow">Content Guide</div>
     <div class="section-title">제작 가이드 <span class="badge-req">필수</span></div>
-    <p style="font-size:13px;color:var(--gray);margin-bottom:4px">영상 및 캡션 포함 — 아래 영상 구성 포인트와 캡션 방향을 참고해 자유롭게 제작해주세요.</p>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:4px">영상 및 캡션 포함 — <b>순서는 자유롭게 구성</b>해 주세요. 아래 항목은 콘텐츠에 반드시 포함되어야 합니다.</p>
 
     <div class="concept-box">
       <div class="cb-label">이번 캠페인 메인 컨셉</div>
@@ -263,78 +311,112 @@ img{max-width:100%;display:block}
     </div>
 
     <details class="acc">
-      <summary><span class="num2">1</span> [영상]</summary>
+      <summary><span class="num2">1</span> [인트로] 콘텐츠 앵글</summary>
       <div class="acc-body">
         <div class="steps">
-      <div class="step">
-        <span class="tag-req">필수 · 사용 전후 Before &amp; After</span>
-        <p>사용 전(혈색도 광도 없이 밋밋하고 평평한 얼굴)과 사용 후(볼에 은은하게 차오르는 혈색 + 광대·콧대에 맑게 올라온 입체 광)의 변화를 직관적으로 보여주는 B&amp;A 컷을 넣어주세요.</p>
+          <div class="step">
+            <span class="tag-req">필수 · 후킹되는 주제 앵글</span>
+            <p>인트로는 후킹할 수 있는 주제 앵글과 맞춰 제작해 주세요. 썸네일이 너무 광고처럼 보이는 것은 지양해 주세요.</p>
+          </div>
+          <div class="step">
+            <span class="tag-req">필수 · 소개 키워드</span>
+            <p>#어른여자 메이크업 · #가을 메이크업 · #굽굽 메이크업 을 소개해 주세요.<br>
+            EX) 올 가을 멀멀한 메이크업 꿀조합템 추천!<br>
+            EX) 어른여자 추구미에 도전하는 나</p>
+          </div>
+        </div>
+        <div class="ref-img">
+          <div class="ref-label">Reference</div>
+          <img src="인트로.png" alt="인트로 콘텐츠 앵글 레퍼런스" loading="lazy" />
+        </div>
+        <div class="changeable">※ 전체적인 컨셉과 무드는 참고만 해주시고, 크리에이터님 스타일에 맞게 재해석하여 제품의 특성이 잘 드러나도록 컨셉츄얼하고 트렌디하게 연출 부탁드립니다.</div>
       </div>
-      <div class="step">
-        <span class="tag-req">필수 · 무스 제형 및 발색 줌인 연출</span>
-        <p>브러쉬나 손끝으로 제품을 덜어낼 때 무스처럼 부드럽게 뭉개지는 제형과, 피부 위에서 보송한 벨벳 파우더로 마무리되는 텍스처 변화를 클로즈업(줌인)으로 연출해 주세요.</p>
-      </div>
-      <div class="step">
-        <span class="tag-req">필수 · 하이라이터 광채 줌인 연출</span>
-        <p>브러쉬나 손끝에 하이라이터를 묻혀 텁텁함 없이 맑고 얇게 밀착되는 입자감과, 빛에 따라 반짝이는 실물 펄감을 클로즈업(줌인)으로 연출해 주세요.</p>
-      </div>
-      <div class="step">
-        <span class="tag-req">필수 · A · B 두 조합 각각 연출</span>
-        <p>제공된 4종으로 아래 두 조합을 <b>각각</b> 완성해 보여주세요. 두 조합의 분위기 차이가 드러나도록 연출해 주시면 좋습니다.<br>
-        · <b>[A조합]</b> 블러셔 06. 라떼핀드 + 하이라이터 01. 로우시에나<br>
-        · <b>[B조합]</b> 블러셔 07. 로우키인러브 + 하이라이터 02. 로즈헤이즈</p>
-      </div>
-      <div class="step">
-        <span class="tag-req">필수 · 손 or 손목 발색</span>
-        <p>손 또는 손목에 4종(블러셔 2종 · 하이라이터 2종)을 나란히 발색해 조합별로 비교되는 컷을 포함해주세요.</p>
-      </div>
-      <div class="step">
-        <span class="tag-req opt">선택 · 블렌딩 노하우 멘트/자막</span>
-        <p>경계 없이 피부에 스며들듯 퍼지는 블렌딩 과정을 보여주며 '속에서 올라오는 듯한 자연스러운 혈색' 효과를 멘트나 자막으로 표현해 주세요.</p>
-      </div>
-      <div class="step">
-        <span class="tag-req opt">선택 · 하이라이터 터치 포인트 연출</span>
-        <p>콧대, 광대, 애교살, 입술 산 등 원하는 부위에 부드럽게 스며들듯 터치하며 '속에서 차오르는 듯한 광' 효과를 멘트나 자막으로 표현해 주세요.</p>
-      </div>
-      <div class="step">
-        <span class="tag-req opt">선택 · 지속력 &amp; 밀착력 강조</span>
-        <p>시간이 지나도 뭉치거나 날아가지 않고 처음 발색 그대로 유지되는 지속력과, 모공·요철 부각 없이 가볍게 밀착되는 모습을 강조해 주세요.</p>
-      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="num2">2</span> 제품 소개 &amp; 컬러 발색</summary>
+      <div class="acc-body">
+        <div class="steps">
+          <div class="step">
+            <span class="tag-req">필수 · 손 or 손목 발색</span>
+            <p>컬러 4종을 모두 손 또는 손목에 발색하여 <b>색감 + 펄감</b>이 잘 보이도록 촬영해 주세요.</p>
+          </div>
+          <div class="step">
+            <span class="tag-req">필수 · 컬러 조합끼리 발색</span>
+            <p>A · B 조합끼리 나란히 발색해 주세요. 뭉침 없이 고르게 발리도록 유의 부탁드립니다.</p>
+          </div>
+        </div>
+        <div class="ref-img">
+          <div class="ref-label">Reference</div>
+          <img src="제품소개및컬러발색.png" alt="제품 소개 및 컬러 발색 레퍼런스" loading="lazy" />
         </div>
       </div>
     </details>
 
     <details class="acc">
-      <summary><span class="num2">2</span> [촬영 팁]</summary>
+      <summary><span class="num2">3</span> 메이크업룩</summary>
       <div class="acc-body">
-        <div class="note-box">제품 패키지와 컬러, 하이라이터의 펄·광채감이 왜곡 없이 실물 그대로 나타나도록 조명 아래나 자연광이 드는 매끈한 배경에서 고화질로 촬영해 주세요.</div>
+        <div class="steps">
+          <div class="step">
+            <span class="tag-req">필수 · 두 조합 모두 노출</span>
+            <p>· <b>[A]</b> 하이라이터 01. 로우 시에나 + 블러셔 06. 라떼 핀드<br>
+            · <b>[B]</b> 하이라이터 02. 로즈 헤이즈 + 블러셔 07. 로우키 인 러브</p>
+          </div>
+          <div class="step">
+            <span class="tag-req">필수 · 튜토리얼 형태 연출</span>
+            <p><b>어른여자 메이크업</b>을 메인으로 포커싱하여 튜토리얼 형태로 연출해 주세요.</p>
+          </div>
+        </div>
+        <div class="ref-img">
+          <div class="ref-label">Reference</div>
+          <img src="메이크업룩.png" alt="메이크업룩 레퍼런스 — 하이라이터 터치 포인트" loading="lazy" />
+        </div>
       </div>
     </details>
 
     <details class="acc">
-      <summary><span class="num2">3</span> [캡션]</summary>
+      <summary><span class="num2">4</span> [아웃트로] 메이크업 완성샷</summary>
       <div class="acc-body">
-        <ul class="cap-list">
-      <li>무스처럼 부드럽게 발리고 보송한 벨벳 결로 마무리되는 무스 에어리 벨벳 블러쉬의 제형과 밀착력을 자유롭게 작성해 주세요.</li>
-      <li>과하지 않게 은은히 올라오는 자연스러운 혈색과, A · B 두 조합이 각각 어떤 분위기를 만들어주는지 비교해 언급해 주세요.</li>
-      <li>콧대·광대·애교살 등 원하는 부위를 은은하게 밝혀 이목구비를 또렷하게 살려주는 하이라이터의 광채 연출 효과를 함께 언급해 주세요.</li>
-      <li>데일리 메이크업의 생기 포인트로, 가볍게 덧발라도 뭉침 없는 데일리 필수템으로 적극 소구해 주세요.</li>
+        <div class="steps">
+          <div class="step">
+            <span class="tag-req">필수 · 인트로 무드와 연결</span>
+            <p>인트로 무드와 연결될 수 있게 완성된 메이크업 룩을 보여주세요.</p>
+          </div>
+          <div class="step">
+            <span class="tag-req">필수 · 다양한 각도</span>
+            <p>메이크업 무드와 <b>하이라이터 펄감</b>이 잘 보일 수 있도록 최대한 다양한 각도로 담아주세요.</p>
+          </div>
+        </div>
+        <div class="ref-img">
+          <div class="ref-label">Reference</div>
+          <img src="메이크업완성샷.png" alt="메이크업 완성샷 레퍼런스" loading="lazy" />
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="num2">5</span> 캡션 · 멘션 <span class="badge-req">필수</span></summary>
+      <div class="acc-body">
+        <div class="note-box"><b>크리에이터님만의 워딩으로 작성 부탁드립니다.</b> 딱딱한 광고 멘트보다는 찐텐션으로 제품 장점을 설명해 주세요. <b>#제품협찬</b> 표기는 필수입니다.</div>
+        <ul class="cap-list" style="margin-top:10px">
+          <li><b>① 오프닝 &amp; 후킹</b><br>요즘 제가 좋아하는 건 딱 이런 어른여자미 메이크업인데요 …</li>
+          <li><b>② 최애 컬러 조합 소개</b><br>저는 특히 06 라떼 핀드 + 01 로우 시에나 조합이 제 취향을 완벽하게 저격하더라고요. 텁텁함 없이 맑게 쌓이는 광채에 차분한 컬러감이 싹 더해져서 분위기 미쳤다는 소리 100번 듣는 중..<br>어른여자미, 멀멀한 가을 메이크업 도전하고 싶으셨다면 오헤이오 하이라이터랑 블러셔 조합으로 해보시는 건 어떠세요?</li>
+          <li><b>③ 프로모션 언급</b><br>미정 — 추후 확정 시 별도 안내 예정입니다.</li>
         </ul>
-        <div class="changeable">※ 자세한 촬영·콘텐츠 가이드는 추후 브랜드 사정에 따라 변경되어 별도 전달될 수 있습니다.</div>
+        <div class="changeable">※ 위 예시는 참고용입니다. 그대로 복사하지 마시고 크리에이터님 워딩으로 작성해 주세요.</div>
       </div>
     </details>
 
     <details class="acc">
-      <summary><span class="num2">4</span> 해시태그 <span class="badge-req">필수</span></summary>
+      <summary><span class="num2">6</span> 해시태그 <span class="badge-req">필수</span></summary>
       <div class="acc-body">
         <div class="tags">
-      <span class="tag">#오헤이오</span>
-      <span class="tag">#OHAYOH</span>
-      <span class="tag">#무스에어리벨벳블러쉬</span>
-      <span class="tag">#오헤이오블러쉬</span>
-      <span class="tag">#플래시베일하이라이터</span>
-      <span class="tag">#가을메이크업</span>
-      <span class="tag">#어른여자메이크업</span>
+          <span class="tag">#오헤이오</span>
+          <span class="tag">#ohayoh</span>
+          <span class="tag">#플래시베일하이라이터</span>
+          <span class="tag">#무스에어리벨벳블러쉬</span>
+          <span class="tag">#가을메이크업</span>
+          <span class="tag">#어른여자메이크업</span>
         </div>
         <div class="changeable">※ 해시태그는 추후 변경될 수 있습니다.</div>
       </div>
@@ -355,8 +437,12 @@ img{max-width:100%;display:block}
     <div class="notice-box">
       <ul>
         <li>업로드 기한을 반드시 준수해주세요. 기간 내 업로드가 이루어지지 않을 경우 고료 지급이 불가합니다.</li>
+        <li>게시글은 최소 <b>6개월 유지</b> 부탁드립니다.</li>
+        <li>인스타그램 계정 필수 태그 — <b>@ohayoh.official</b></li>
+        <li>협업 게시물 업로드 후 <b>스토리 업로드도 함께 진행 필수</b>입니다.</li>
+        <li>콘텐츠는 브랜드 계정 내 스토리, 피드에 활용될 수 있습니다.</li>
+        <li>2차 활용에 동의해 주신 분들의 콘텐츠는 오헤이오 공식 홈페이지, SNS, 플랫폼 등에 활용될 수 있는 점 참고 부탁드립니다.</li>
         <li>파트너십 코드 제공은 필수이며, 미제공 시 정산이 지연될 수 있습니다.</li>
-        <li>공동작업자 설정 및 콘텐츠 2차 활용에 동의하는 것으로 간주됩니다.</li>
       </ul>
     </div>
   </div>
