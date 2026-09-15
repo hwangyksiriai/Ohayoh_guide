@@ -13,17 +13,18 @@
   --brand-light:#F3E1D6;
   --bg:#FBF7F3;
   --ink:#2A2119; --gray:#8A7A70; --white:#fff;
+  --sans:'Helvetica Neue',Helvetica,Arial,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   --mono:'JetBrains Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;word-wrap:break-word}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;word-wrap:break-word}
 .wrap{max-width:680px;margin:0 auto;padding-bottom:72px}
 img{max-width:100%;display:block}
 
 /* HERO */
 .hero{position:relative;color:#fff;text-align:center;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:56px 24px 44px}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right 20%}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,32,22,.25) 0%,rgba(46,32,22,.35) 40%,rgba(38,26,18,.92) 100%)}
 .hero-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:100px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;margin-bottom:18px;position:relative;backdrop-filter:blur(2px)}
 .hero h1{font-size:clamp(32px,9.5vw,50px);font-weight:900;letter-spacing:-.01em;position:relative}
@@ -161,7 +162,7 @@ img{max-width:100%;display:block}
 
   <!-- ░░ HERO ░░ -->
   <div class="hero">
-    <img class="hero-img" src="배너.PNG" alt="OHAYOH" />
+    <img class="hero-img" src="배너2.png" alt="OHAYOH" />
     <div class="hero-overlay"></div>
     <div class="hero-badge">INFLUENCER GUIDELINE</div>
     <h1>오헤이오 가이드라인</h1>
